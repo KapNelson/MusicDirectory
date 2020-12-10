@@ -55,15 +55,51 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\Model1.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Database\Album.cs" />
+    <Compile Include="Database\Alyubomin.cs" />
+    <Compile Include="Database\Band.cs" />
+    <Compile Include="Database\Disk.cs" />
+    <Compile Include="Database\Genre.cs" />
+    <Compile Include="Database\Mixed.cs" />
+    <Compile Include="Database\MusicDirectoryContext.cs" />
+    <Compile Include="Database\Musician.cs" />
+    <Compile Include="Database\MusInstruments.cs" />
+    <Compile Include="Database\Performer.cs" />
+    <Compile Include="Database\Style.cs" />
+    <Compile Include="Database\Track.cs" />
+    <Compile Include="Database\Users.cs" />
+    <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuAdminForm.Designer.cs">
+      <DependentUpon>MenuAdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuUserForm.Designer.cs">
+      <DependentUpon>MenuUserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegForm.Designer.cs">
+      <DependentUpon>RegForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuUserForm.resx">
+      <DependentUpon>MenuUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -73,6 +109,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RegForm.resx">
+      <DependentUpon>RegForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

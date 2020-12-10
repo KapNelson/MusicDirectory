@@ -15,6 +15,6 @@ namespace MusicDirectory.Database
         [StringLength(20)]
         public string Password { get; set; }
 
-        public int? Admin { get; set; }
+        public bool Admin { get; set; }
     }
 }
