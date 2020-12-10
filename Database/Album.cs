@@ -1,4 +1,4 @@
-namespace MusicDirectory.Database
+namespace MusicDirectory
 {
     using System;
     using System.Collections.Generic;
@@ -16,7 +16,7 @@ namespace MusicDirectory.Database
             Alyubomin = new HashSet<Alyubomin>();
         }
 
-        [StringLength(20)]
+        [StringLength(50)]
         public string AlbumTitle { get; set; }
 
         public int? AlbumRecYear { get; set; }

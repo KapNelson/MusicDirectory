@@ -1,4 +1,4 @@
-namespace MusicDirectory.Database
+namespace MusicDirectory
 {
     using System;
     using System.Collections.Generic;
@@ -8,17 +8,8 @@ namespace MusicDirectory.Database
 
     public partial class MusInstruments
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MusInstruments()
-        {
-            Musician = new HashSet<Musician>();
-        }
-
         [Key]
-        [StringLength(20)]
+        [StringLength(50)]
         public string MusInstrumentName { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Musician> Musician { get; set; }
     }
 }

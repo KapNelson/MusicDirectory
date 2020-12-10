@@ -25,11 +25,11 @@ namespace MusicDirectory
             bool admin = adminCheckBox.Checked;
             bool c = false;
 
-            Database.MusicDirectoryContext db = new Database.MusicDirectoryContext();
+            MusicDirectoryContext db = new MusicDirectoryContext();
             
             var users = db.Users;
 
-            foreach (Database.Users el in users)
+            foreach (Users el in users)
             {
                 if (loginUser == el.Login)
                 {
@@ -41,7 +41,7 @@ namespace MusicDirectory
             {
                 if (passUser == repassUser)
                 {
-                    Database.Users newUser = new Database.Users { Login = loginUser, Password = passUser, Admin = admin };
+                    Users newUser = new Users { Login = loginUser, Password = passUser, Admin = admin };
                     db.Users.Add(newUser);
                     db.SaveChanges();
                     this.Close();

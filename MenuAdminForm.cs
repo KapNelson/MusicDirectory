@@ -16,5 +16,29 @@ namespace MusicDirectory
         {
             InitializeComponent();
         }
+
+        private void addTrackButton_Click(object sender, EventArgs e)
+        {
+            AddTrackForm form = new AddTrackForm();
+            MusicDirectoryContext db = new MusicDirectoryContext();
+            var performer = db.Performer;
+            var genre = db.Genre;
+            var album = db.Album;
+
+            foreach (Performer el in performer)
+            {
+                AddTrackForm.instance.AddPerformer(el.ArtistName);
+            }
+            foreach (Genre el in genre)
+            {
+                AddTrackForm.instance.AddGenre(el.GenreName);
+            }
+            foreach (Album el in album)
+            {
+                AddTrackForm.instance.AddAlbum(el.AlbumTitle);
+            }
+
+            form.Show();
+        }
     }
 }

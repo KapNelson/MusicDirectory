@@ -1,4 +1,4 @@
-namespace MusicDirectory.Database
+namespace MusicDirectory
 {
     using System;
     using System.Collections.Generic;
@@ -15,26 +15,18 @@ namespace MusicDirectory.Database
             Track = new HashSet<Track>();
         }
 
-        [StringLength(20)]
+        [StringLength(50)]
         public string ArtistName { get; set; }
 
-        [StringLength(20)]
+        [StringLength(50)]
         public string Country { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string StyleName { get; set; }
 
         [Key]
         public int ID_Artist { get; set; }
 
         public virtual Band Band { get; set; }
 
-        public virtual Style Style { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Track> Track { get; set; }
-
-        public virtual Musician Musician { get; set; }
     }
 }

@@ -29,12 +29,33 @@ namespace MusicDirectory
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.addTrackButton = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // addTrackButton
+            // 
+            this.addTrackButton.Location = new System.Drawing.Point(406, 358);
+            this.addTrackButton.Name = "addTrackButton";
+            this.addTrackButton.Size = new System.Drawing.Size(153, 53);
+            this.addTrackButton.TabIndex = 0;
+            this.addTrackButton.Text = "Добавить песню\r\n";
+            this.addTrackButton.UseVisualStyleBackColor = true;
+            this.addTrackButton.Click += new System.EventHandler(this.addTrackButton_Click);
+            // 
+            // MenuAdminForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "MenuAdminForm";
+            this.ClientSize = new System.Drawing.Size(942, 493);
+            this.Controls.Add(this.addTrackButton);
+            this.Name = "MenuAdminForm";
+            this.Text = "Меню администратора";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button addTrackButton;
     }
 }

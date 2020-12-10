@@ -23,11 +23,11 @@ namespace MusicDirectory
             string passUser = passwordTextBox.Text;
             bool connect = false;
 
-            Database.MusicDirectoryContext db = new Database.MusicDirectoryContext();
+            MusicDirectoryContext db = new MusicDirectoryContext();
 
             var users = db.Users;
             
-            foreach (Database.Users el in users)
+            foreach (Users el in users)
             {
                 if(loginUser == el.Login && passUser == el.Password)
                 {

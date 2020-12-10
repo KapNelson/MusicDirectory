@@ -1,4 +1,4 @@
-namespace MusicDirectory.Database
+namespace MusicDirectory
 {
     using System;
     using System.Collections.Generic;

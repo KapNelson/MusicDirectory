@@ -1,4 +1,4 @@
-namespace MusicDirectory.Database
+namespace MusicDirectory
 {
     using System;
     using System.Collections.Generic;
@@ -19,16 +19,17 @@ namespace MusicDirectory.Database
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int BatchNumber { get; set; }
 
-        [StringLength(20)]
+        [StringLength(50)]
         public string Manufacturer { get; set; }
 
-        [StringLength(20)]
+        [StringLength(50)]
         public string DiscName { get; set; }
 
         public int? NumberOfTracks { get; set; }
 
         public int? Circulation { get; set; }
 
+        [Column(TypeName = "date")]
         public DateTime? ReleaseDate { get; set; }
 
         public virtual Alyubomin Alyubomin { get; set; }

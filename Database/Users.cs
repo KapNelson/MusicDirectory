@@ -1,4 +1,4 @@
-namespace MusicDirectory.Database
+namespace MusicDirectory
 {
     using System;
     using System.Collections.Generic;
@@ -9,10 +9,10 @@ namespace MusicDirectory.Database
     public partial class Users
     {
         [Key]
-        [StringLength(20)]
+        [StringLength(50)]
         public string Login { get; set; }
 
-        [StringLength(20)]
+        [StringLength(50)]
         public string Password { get; set; }
 
         public bool Admin { get; set; }

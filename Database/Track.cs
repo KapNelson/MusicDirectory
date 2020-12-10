@@ -1,4 +1,4 @@
-namespace MusicDirectory.Database
+namespace MusicDirectory
 {
     using System;
     using System.Collections.Generic;
@@ -15,18 +15,18 @@ namespace MusicDirectory.Database
             Mixed = new HashSet<Mixed>();
         }
 
-        [StringLength(20)]
+        [StringLength(50)]
         public string NameOfTrack { get; set; }
 
         public int? TrackRecYear { get; set; }
 
-        [StringLength(20)]
+        [StringLength(50)]
         public string Duration { get; set; }
 
         public int? AlbumNumber { get; set; }
 
         [Required]
-        [StringLength(20)]
+        [StringLength(50)]
         public string GenreName { get; set; }
 
         public int? ID_Album { get; set; }

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -55,19 +58,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddGenreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddGenreForm.Designer.cs">
+      <DependentUpon>AddGenreForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddTrackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTrackForm.Designer.cs">
+      <DependentUpon>AddTrackForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database\Album.cs" />
     <Compile Include="Database\Alyubomin.cs" />
     <Compile Include="Database\Band.cs" />
     <Compile Include="Database\Disk.cs" />
     <Compile Include="Database\Genre.cs" />
-    <Compile Include="Database\Mixed.cs" />
-    <Compile Include="Database\MusicDirectoryContext.cs" />
-    <Compile Include="Database\Musician.cs" />
-    <Compile Include="Database\MusInstruments.cs" />
-    <Compile Include="Database\Performer.cs" />
-    <Compile Include="Database\Style.cs" />
-    <Compile Include="Database\Track.cs" />
-    <Compile Include="Database\Users.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,16 +93,34 @@
     <Compile Include="MenuUserForm.Designer.cs">
       <DependentUpon>MenuUserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Database\Mixed.cs" />
+    <Compile Include="Database\MusicDirectoryContext.cs" />
+    <Compile Include="Database\Musician.cs" />
+    <Compile Include="Database\MusInstruments.cs" />
+    <Compile Include="Database\Participation.cs" />
+    <Compile Include="Database\Performer.cs" />
+    <Compile Include="Database\PlayOn.cs" />
+    <Compile Include="Database\Program.cs" />
     <Compile Include="RegForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RegForm.Designer.cs">
       <DependentUpon>RegForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database\Solo.cs" />
+    <Compile Include="Database\Track.cs" />
+    <Compile Include="Database\Users.cs" />
+    <EmbeddedResource Include="AddGenreForm.resx">
+      <DependentUpon>AddGenreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTrackForm.resx">
+      <DependentUpon>AddTrackForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuAdminForm.resx">
+      <DependentUpon>MenuAdminForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuUserForm.resx">
       <DependentUpon>MenuUserForm.cs</DependentUpon>
@@ -108,10 +133,12 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RegForm.resx">
       <DependentUpon>RegForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -123,8 +150,14 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>
