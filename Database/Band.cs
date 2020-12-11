@@ -16,5 +16,6 @@ namespace MusicDirectory
         public int ID_Artist { get; set; }
 
         public virtual Performer Performer { get; set; }
+        public virtual ICollection<Participation> Participation { get; set; }
     }
 }

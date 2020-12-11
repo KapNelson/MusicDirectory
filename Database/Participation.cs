@@ -18,5 +18,7 @@ namespace MusicDirectory
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID_Musician { get; set; }
+        public virtual Musician Musician { get; set; }
+        public virtual Band Band { get; set; }
     }
 }

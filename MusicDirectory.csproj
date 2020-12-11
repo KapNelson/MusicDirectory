@@ -100,7 +100,7 @@
     <Compile Include="Database\Participation.cs" />
     <Compile Include="Database\Performer.cs" />
     <Compile Include="Database\PlayOn.cs" />
-    <Compile Include="Database\Program.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="RegForm.cs">
       <SubType>Form</SubType>
     </Compile>

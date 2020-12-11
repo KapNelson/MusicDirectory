@@ -17,5 +17,8 @@ namespace MusicDirectory
 
         [Key]
         public int ID_Musician { get; set; }
+        public virtual Solo Solo { get; set; }
+        public virtual ICollection<PlayOn> PlayOn { get; set; }
+        public virtual ICollection<Participation> Participation { get; set; }
     }
 }

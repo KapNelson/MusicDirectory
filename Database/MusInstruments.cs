@@ -11,5 +11,6 @@ namespace MusicDirectory
         [Key]
         [StringLength(50)]
         public string MusInstrumentName { get; set; }
+        public virtual ICollection<PlayOn> PlayOn { get; set; }
     }
 }

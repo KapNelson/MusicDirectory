@@ -25,6 +25,7 @@ namespace MusicDirectory
         public int ID_Artist { get; set; }
 
         public virtual Band Band { get; set; }
+        public virtual Solo Solo { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Track> Track { get; set; }

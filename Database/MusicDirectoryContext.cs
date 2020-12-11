@@ -51,6 +51,14 @@ namespace MusicDirectory
                 .HasMany(e => e.Track)
                 .WithRequired(e => e.Performer)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Performer>()
+                .HasOptional(e => e.Solo)
+                .WithRequired(e => e.Performer);
+
+            modelBuilder.Entity<Musician>()
+                .HasOptional(e => e.Solo)
+                .WithRequired(e => e.Musician);
         }
     }
 }
