@@ -17,6 +17,7 @@ D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.pdb
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.MenuUserForm.resources
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.RegForm.resources
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.MenuAdminForm.resources
-D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.AddTrackForm.resources
 D:\Projects\VisualStudioProdjects\MusicDirectory\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.AddGenreForm.resources
+D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.AddPerformerForm.resources
+D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.AddAlbumForm.resources

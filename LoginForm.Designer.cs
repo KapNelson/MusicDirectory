@@ -34,13 +34,16 @@ namespace MusicDirectory
             this.loginTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.regButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // loginButton
             // 
-            this.loginButton.Location = new System.Drawing.Point(326, 346);
+            this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loginButton.Location = new System.Drawing.Point(297, 346);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(110, 49);
+            this.loginButton.Size = new System.Drawing.Size(152, 36);
             this.loginButton.TabIndex = 0;
             this.loginButton.Text = "Вход";
             this.loginButton.UseVisualStyleBackColor = true;
@@ -48,28 +51,51 @@ namespace MusicDirectory
             // 
             // loginTextBox
             // 
+            this.loginTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.loginTextBox.Location = new System.Drawing.Point(357, 201);
             this.loginTextBox.Name = "loginTextBox";
-            this.loginTextBox.Size = new System.Drawing.Size(227, 22);
+            this.loginTextBox.Size = new System.Drawing.Size(227, 30);
             this.loginTextBox.TabIndex = 1;
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(357, 263);
+            this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.passwordTextBox.Location = new System.Drawing.Point(357, 256);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(227, 22);
+            this.passwordTextBox.Size = new System.Drawing.Size(227, 30);
             this.passwordTextBox.TabIndex = 2;
             // 
             // regButton
             // 
             this.regButton.BackColor = System.Drawing.SystemColors.Control;
-            this.regButton.Location = new System.Drawing.Point(509, 346);
+            this.regButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.regButton.Location = new System.Drawing.Point(492, 346);
             this.regButton.Name = "regButton";
-            this.regButton.Size = new System.Drawing.Size(110, 56);
+            this.regButton.Size = new System.Drawing.Size(152, 36);
             this.regButton.TabIndex = 3;
             this.regButton.Text = "Регестрация";
             this.regButton.UseVisualStyleBackColor = false;
             this.regButton.Click += new System.EventHandler(this.regButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(265, 204);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 25);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Логин:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(253, 259);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 25);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Пароль:";
             // 
             // LoginForm
             // 
@@ -78,6 +104,8 @@ namespace MusicDirectory
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(942, 493);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.regButton);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.loginTextBox);
@@ -95,6 +123,8 @@ namespace MusicDirectory
         private System.Windows.Forms.TextBox loginTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Button regButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

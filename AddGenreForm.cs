@@ -23,7 +23,8 @@ namespace MusicDirectory
             Genre newGenre = new Genre { GenreName = genreTextBox.Text };
             db.Genre.Add(newGenre);
             db.SaveChanges();
-            AddTrackForm.instance.AddGenre(genreTextBox.Text);
+            MenuAdminForm.instance.AddGenre(genreTextBox.Text);
+            MessageBox.Show("Жанр успешно добавлен!");
         }
     }
 }
