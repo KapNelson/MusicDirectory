@@ -48,140 +48,140 @@ namespace MusicDirectory
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(205, 82);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(14, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 20);
+            this.label1.Size = new System.Drawing.Size(165, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Название трека:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(205, 128);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(14, 64);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 20);
+            this.label2.Size = new System.Drawing.Size(136, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Исполнитель:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(205, 173);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(14, 109);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 20);
+            this.label3.Size = new System.Drawing.Size(120, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Год записи:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(205, 215);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(14, 151);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(136, 20);
+            this.label4.Size = new System.Drawing.Size(149, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Длительность:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(205, 260);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(14, 196);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 20);
+            this.label5.Size = new System.Drawing.Size(85, 20);
             this.label5.TabIndex = 4;
             this.label5.Text = "Альбом:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(205, 305);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(14, 241);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(161, 20);
+            this.label6.Size = new System.Drawing.Size(177, 20);
             this.label6.TabIndex = 5;
             this.label6.Text = "Номер в альбоме:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(205, 346);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(14, 282);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 20);
+            this.label7.Size = new System.Drawing.Size(63, 20);
             this.label7.TabIndex = 6;
             this.label7.Text = "Жанр:";
             // 
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nameLabel.Location = new System.Drawing.Point(415, 82);
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nameLabel.Location = new System.Drawing.Point(224, 18);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(119, 20);
+            this.nameLabel.Size = new System.Drawing.Size(130, 20);
             this.nameLabel.TabIndex = 7;
             this.nameLabel.Text = "Неисзвестно";
             // 
             // performerLabel
             // 
             this.performerLabel.AutoSize = true;
-            this.performerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.performerLabel.Location = new System.Drawing.Point(415, 128);
+            this.performerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.performerLabel.Location = new System.Drawing.Point(224, 64);
             this.performerLabel.Name = "performerLabel";
-            this.performerLabel.Size = new System.Drawing.Size(119, 20);
+            this.performerLabel.Size = new System.Drawing.Size(130, 20);
             this.performerLabel.TabIndex = 8;
             this.performerLabel.Text = "Неисзвестно";
             // 
             // yearLabel
             // 
             this.yearLabel.AutoSize = true;
-            this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.yearLabel.Location = new System.Drawing.Point(415, 173);
+            this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.yearLabel.Location = new System.Drawing.Point(224, 109);
             this.yearLabel.Name = "yearLabel";
-            this.yearLabel.Size = new System.Drawing.Size(119, 20);
+            this.yearLabel.Size = new System.Drawing.Size(130, 20);
             this.yearLabel.TabIndex = 9;
             this.yearLabel.Text = "Неисзвестно";
             // 
             // durationLabel
             // 
             this.durationLabel.AutoSize = true;
-            this.durationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.durationLabel.Location = new System.Drawing.Point(415, 215);
+            this.durationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.durationLabel.Location = new System.Drawing.Point(224, 151);
             this.durationLabel.Name = "durationLabel";
-            this.durationLabel.Size = new System.Drawing.Size(119, 20);
+            this.durationLabel.Size = new System.Drawing.Size(130, 20);
             this.durationLabel.TabIndex = 10;
             this.durationLabel.Text = "Неисзвестно";
             // 
             // albumLabel
             // 
             this.albumLabel.AutoSize = true;
-            this.albumLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.albumLabel.Location = new System.Drawing.Point(415, 260);
+            this.albumLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.albumLabel.Location = new System.Drawing.Point(224, 196);
             this.albumLabel.Name = "albumLabel";
-            this.albumLabel.Size = new System.Drawing.Size(119, 20);
+            this.albumLabel.Size = new System.Drawing.Size(130, 20);
             this.albumLabel.TabIndex = 11;
             this.albumLabel.Text = "Неисзвестно";
             // 
             // numLabel
             // 
             this.numLabel.AutoSize = true;
-            this.numLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numLabel.Location = new System.Drawing.Point(415, 305);
+            this.numLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numLabel.Location = new System.Drawing.Point(224, 241);
             this.numLabel.Name = "numLabel";
-            this.numLabel.Size = new System.Drawing.Size(119, 20);
+            this.numLabel.Size = new System.Drawing.Size(130, 20);
             this.numLabel.TabIndex = 12;
             this.numLabel.Text = "Неисзвестно";
             // 
             // genreLabel
             // 
             this.genreLabel.AutoSize = true;
-            this.genreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.genreLabel.Location = new System.Drawing.Point(415, 346);
+            this.genreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.genreLabel.Location = new System.Drawing.Point(224, 282);
             this.genreLabel.Name = "genreLabel";
-            this.genreLabel.Size = new System.Drawing.Size(119, 20);
+            this.genreLabel.Size = new System.Drawing.Size(130, 20);
             this.genreLabel.TabIndex = 13;
             this.genreLabel.Text = "Неисзвестно";
             // 
@@ -189,7 +189,7 @@ namespace MusicDirectory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(481, 319);
             this.Controls.Add(this.genreLabel);
             this.Controls.Add(this.numLabel);
             this.Controls.Add(this.albumLabel);

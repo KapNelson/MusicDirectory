@@ -40,13 +40,14 @@ namespace MusicDirectory
             // 
             // loginButton
             // 
-            this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loginButton.BackColor = System.Drawing.SystemColors.Control;
+            this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.loginButton.Location = new System.Drawing.Point(297, 346);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(152, 36);
             this.loginButton.TabIndex = 0;
             this.loginButton.Text = "Вход";
-            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // loginTextBox
@@ -68,7 +69,7 @@ namespace MusicDirectory
             // regButton
             // 
             this.regButton.BackColor = System.Drawing.SystemColors.Control;
-            this.regButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.regButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.regButton.Location = new System.Drawing.Point(492, 346);
             this.regButton.Name = "regButton";
             this.regButton.Size = new System.Drawing.Size(152, 36);
@@ -80,21 +81,24 @@ namespace MusicDirectory
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.Control;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(265, 204);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 25);
+            this.label1.Size = new System.Drawing.Size(80, 25);
             this.label1.TabIndex = 4;
             this.label1.Text = "Логин:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(253, 259);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 25);
+            this.label2.Size = new System.Drawing.Size(93, 25);
             this.label2.TabIndex = 5;
             this.label2.Text = "Пароль:";
             // 

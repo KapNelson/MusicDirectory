@@ -41,16 +41,18 @@ namespace MusicDirectory
             // 
             // nameTextBox
             // 
+            this.nameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.nameTextBox.Location = new System.Drawing.Point(311, 101);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(180, 22);
+            this.nameTextBox.Size = new System.Drawing.Size(180, 30);
             this.nameTextBox.TabIndex = 19;
             // 
             // addAlbumButton
             // 
+            this.addAlbumButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addAlbumButton.Location = new System.Drawing.Point(311, 325);
             this.addAlbumButton.Name = "addAlbumButton";
-            this.addAlbumButton.Size = new System.Drawing.Size(180, 24);
+            this.addAlbumButton.Size = new System.Drawing.Size(180, 62);
             this.addAlbumButton.TabIndex = 18;
             this.addAlbumButton.Text = "Добавить альбом";
             this.addAlbumButton.UseVisualStyleBackColor = true;
@@ -58,42 +60,53 @@ namespace MusicDirectory
             // 
             // yearRecTextBox
             // 
+            this.yearRecTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.yearRecTextBox.Location = new System.Drawing.Point(310, 149);
             this.yearRecTextBox.Name = "yearRecTextBox";
-            this.yearRecTextBox.Size = new System.Drawing.Size(181, 22);
+            this.yearRecTextBox.Size = new System.Drawing.Size(181, 30);
             this.yearRecTextBox.TabIndex = 17;
             // 
             // numTextBox
             // 
+            this.numTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.numTextBox.Location = new System.Drawing.Point(310, 196);
             this.numTextBox.Name = "numTextBox";
-            this.numTextBox.Size = new System.Drawing.Size(181, 22);
+            this.numTextBox.Size = new System.Drawing.Size(181, 30);
             this.numTextBox.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(166, 104);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(94, 105);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 17);
+            this.label1.Size = new System.Drawing.Size(187, 23);
             this.label1.TabIndex = 23;
             this.label1.Text = "Название альбома:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(216, 152);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(159, 152);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 17);
+            this.label2.Size = new System.Drawing.Size(122, 25);
             this.label2.TabIndex = 24;
             this.label2.Text = "Год записи:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(163, 199);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(82, 199);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(139, 17);
+            this.label3.Size = new System.Drawing.Size(199, 25);
             this.label3.TabIndex = 25;
             this.label3.Text = "Количиство треков:";
             // 

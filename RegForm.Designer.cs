@@ -43,11 +43,13 @@ namespace MusicDirectory
             // adminCheckBox
             // 
             this.adminCheckBox.AutoSize = true;
-            this.adminCheckBox.BackColor = System.Drawing.SystemColors.Control;
-            this.adminCheckBox.Location = new System.Drawing.Point(428, 295);
+            this.adminCheckBox.BackColor = System.Drawing.Color.Transparent;
+            this.adminCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.adminCheckBox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.adminCheckBox.Location = new System.Drawing.Point(421, 306);
             this.adminCheckBox.Name = "adminCheckBox";
             this.adminCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.adminCheckBox.Size = new System.Drawing.Size(133, 21);
+            this.adminCheckBox.Size = new System.Drawing.Size(151, 22);
             this.adminCheckBox.TabIndex = 0;
             this.adminCheckBox.Text = "Администратор\r\n";
             this.adminCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -55,9 +57,10 @@ namespace MusicDirectory
             // 
             // addUserButton
             // 
-            this.addUserButton.Location = new System.Drawing.Point(397, 372);
+            this.addUserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addUserButton.Location = new System.Drawing.Point(397, 365);
             this.addUserButton.Name = "addUserButton";
-            this.addUserButton.Size = new System.Drawing.Size(198, 58);
+            this.addUserButton.Size = new System.Drawing.Size(198, 65);
             this.addUserButton.TabIndex = 1;
             this.addUserButton.Text = "Создать пользователя";
             this.addUserButton.UseVisualStyleBackColor = true;
@@ -90,31 +93,36 @@ namespace MusicDirectory
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.Control;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(304, 129);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(292, 129);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 25);
+            this.label1.Size = new System.Drawing.Size(80, 25);
             this.label1.TabIndex = 5;
             this.label1.Text = "Логин:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(292, 192);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(279, 192);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 25);
+            this.label2.Size = new System.Drawing.Size(93, 25);
             this.label2.TabIndex = 6;
             this.label2.Text = "Пароль:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(187, 245);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(164, 245);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(191, 25);
+            this.label3.Size = new System.Drawing.Size(208, 25);
             this.label3.TabIndex = 7;
             this.label3.Text = "Повторите пароль:";
             // 

@@ -108,71 +108,86 @@ namespace MusicDirectory
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(335, 322);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(216, 227);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 17);
+            this.label7.Size = new System.Drawing.Size(99, 25);
             this.label7.TabIndex = 28;
             this.label7.Text = "Альбом:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(347, 279);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Location = new System.Drawing.Point(241, 336);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 17);
+            this.label6.Size = new System.Drawing.Size(74, 25);
             this.label6.TabIndex = 27;
             this.label6.Text = "Жанр:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(270, 231);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(116, 281);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(126, 17);
+            this.label5.Size = new System.Drawing.Size(199, 25);
             this.label5.TabIndex = 26;
             this.label5.Text = "Номер в альбоме:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(290, 187);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(145, 179);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 17);
+            this.label4.Size = new System.Drawing.Size(170, 25);
             this.label4.TabIndex = 25;
             this.label4.Text = "Длительность:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(297, 133);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(160, 123);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 17);
+            this.label3.Size = new System.Drawing.Size(155, 25);
             this.label3.TabIndex = 24;
             this.label3.Text = "Исполнитель:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(300, 73);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(167, 73);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 17);
+            this.label2.Size = new System.Drawing.Size(148, 25);
             this.label2.TabIndex = 23;
             this.label2.Text = "Дата записи:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(278, 29);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(136, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 17);
+            this.label1.Size = new System.Drawing.Size(179, 25);
             this.label1.TabIndex = 22;
             this.label1.Text = "Название трека:";
             // 
             // addAlbumButton
             // 
-            this.addAlbumButton.Location = new System.Drawing.Point(568, 318);
+            this.addAlbumButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addAlbumButton.Location = new System.Drawing.Point(621, 218);
             this.addAlbumButton.Name = "addAlbumButton";
-            this.addAlbumButton.Size = new System.Drawing.Size(180, 24);
+            this.addAlbumButton.Size = new System.Drawing.Size(180, 46);
             this.addAlbumButton.TabIndex = 21;
             this.addAlbumButton.Text = "Добавить альбом";
             this.addAlbumButton.UseVisualStyleBackColor = true;
@@ -180,9 +195,10 @@ namespace MusicDirectory
             // 
             // addGenreButton
             // 
-            this.addGenreButton.Location = new System.Drawing.Point(568, 275);
+            this.addGenreButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addGenreButton.Location = new System.Drawing.Point(621, 327);
             this.addGenreButton.Name = "addGenreButton";
-            this.addGenreButton.Size = new System.Drawing.Size(180, 24);
+            this.addGenreButton.Size = new System.Drawing.Size(180, 46);
             this.addGenreButton.TabIndex = 20;
             this.addGenreButton.Text = "Добавить жанр";
             this.addGenreButton.UseVisualStyleBackColor = true;
@@ -190,9 +206,10 @@ namespace MusicDirectory
             // 
             // addPerformerButton
             // 
-            this.addPerformerButton.Location = new System.Drawing.Point(568, 129);
+            this.addPerformerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addPerformerButton.Location = new System.Drawing.Point(621, 109);
             this.addPerformerButton.Name = "addPerformerButton";
-            this.addPerformerButton.Size = new System.Drawing.Size(180, 24);
+            this.addPerformerButton.Size = new System.Drawing.Size(180, 56);
             this.addPerformerButton.TabIndex = 19;
             this.addPerformerButton.Text = "Добавить исполнителя";
             this.addPerformerButton.UseVisualStyleBackColor = true;
@@ -200,61 +217,69 @@ namespace MusicDirectory
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(402, 26);
+            this.nameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nameTextBox.Location = new System.Drawing.Point(359, 26);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(153, 22);
+            this.nameTextBox.Size = new System.Drawing.Size(228, 30);
             this.nameTextBox.TabIndex = 18;
             // 
             // albumComboBox
             // 
+            this.albumComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.albumComboBox.FormattingEnabled = true;
-            this.albumComboBox.Location = new System.Drawing.Point(402, 319);
+            this.albumComboBox.Location = new System.Drawing.Point(359, 224);
             this.albumComboBox.Name = "albumComboBox";
-            this.albumComboBox.Size = new System.Drawing.Size(153, 24);
+            this.albumComboBox.Size = new System.Drawing.Size(228, 33);
             this.albumComboBox.TabIndex = 17;
             // 
             // genreComboBox
             // 
+            this.genreComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.genreComboBox.FormattingEnabled = true;
-            this.genreComboBox.Location = new System.Drawing.Point(402, 276);
+            this.genreComboBox.Location = new System.Drawing.Point(359, 333);
             this.genreComboBox.Name = "genreComboBox";
-            this.genreComboBox.Size = new System.Drawing.Size(153, 24);
+            this.genreComboBox.Size = new System.Drawing.Size(228, 33);
             this.genreComboBox.TabIndex = 16;
             // 
             // performerComboBox
             // 
+            this.performerComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.performerComboBox.FormattingEnabled = true;
-            this.performerComboBox.Location = new System.Drawing.Point(402, 129);
+            this.performerComboBox.Location = new System.Drawing.Point(359, 120);
             this.performerComboBox.Name = "performerComboBox";
-            this.performerComboBox.Size = new System.Drawing.Size(153, 24);
+            this.performerComboBox.Size = new System.Drawing.Size(228, 33);
             this.performerComboBox.TabIndex = 15;
             // 
             // numTextBox
             // 
-            this.numTextBox.Location = new System.Drawing.Point(402, 228);
+            this.numTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numTextBox.Location = new System.Drawing.Point(359, 276);
             this.numTextBox.Name = "numTextBox";
-            this.numTextBox.Size = new System.Drawing.Size(153, 22);
+            this.numTextBox.Size = new System.Drawing.Size(228, 30);
             this.numTextBox.TabIndex = 14;
             // 
             // durationTextBox
             // 
-            this.durationTextBox.Location = new System.Drawing.Point(402, 184);
+            this.durationTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.durationTextBox.Location = new System.Drawing.Point(359, 176);
             this.durationTextBox.Name = "durationTextBox";
-            this.durationTextBox.Size = new System.Drawing.Size(153, 22);
+            this.durationTextBox.Size = new System.Drawing.Size(228, 30);
             this.durationTextBox.TabIndex = 13;
             // 
             // yearRecTextBox
             // 
-            this.yearRecTextBox.Location = new System.Drawing.Point(402, 70);
+            this.yearRecTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.yearRecTextBox.Location = new System.Drawing.Point(359, 70);
             this.yearRecTextBox.Name = "yearRecTextBox";
-            this.yearRecTextBox.Size = new System.Drawing.Size(153, 22);
+            this.yearRecTextBox.Size = new System.Drawing.Size(228, 30);
             this.yearRecTextBox.TabIndex = 12;
             // 
             // addTrackButton
             // 
-            this.addTrackButton.Location = new System.Drawing.Point(402, 358);
+            this.addTrackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addTrackButton.Location = new System.Drawing.Point(404, 380);
             this.addTrackButton.Name = "addTrackButton";
-            this.addTrackButton.Size = new System.Drawing.Size(153, 53);
+            this.addTrackButton.Size = new System.Drawing.Size(153, 68);
             this.addTrackButton.TabIndex = 0;
             this.addTrackButton.Text = "Добавить песню\r\n";
             this.addTrackButton.UseVisualStyleBackColor = true;
@@ -317,7 +342,6 @@ namespace MusicDirectory
             this.reloadUsersButton.TabIndex = 1;
             this.reloadUsersButton.Text = "Обновить";
             this.reloadUsersButton.UseVisualStyleBackColor = true;
-            //this.reloadUsersButton.Click += new System.EventHandler(this.reloadUsersButton_Click);
             // 
             // usersDataGridView
             // 
@@ -329,9 +353,6 @@ namespace MusicDirectory
             this.usersDataGridView.RowTemplate.Height = 24;
             this.usersDataGridView.Size = new System.Drawing.Size(935, 467);
             this.usersDataGridView.TabIndex = 0;
-            //this.usersDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersDataGridView_CellContentClick);
-            //this.usersDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersDataGridView_CellValueChanged);
-            //this.usersDataGridView.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.usersDataGridView_UserAddedRow);
             // 
             // MenuAdminForm
             // 

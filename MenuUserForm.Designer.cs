@@ -58,17 +58,17 @@ namespace MusicDirectory
             // nameTrack
             // 
             this.nameTrack.Text = "Название трека";
-            this.nameTrack.Width = 194;
+            this.nameTrack.Width = 261;
             // 
             // performerTrack
             // 
             this.performerTrack.Text = "Исполнитель";
-            this.performerTrack.Width = 189;
+            this.performerTrack.Width = 243;
             // 
             // yearTrack
             // 
             this.yearTrack.Text = "Год выпуска";
-            this.yearTrack.Width = 96;
+            this.yearTrack.Width = 126;
             // 
             // playButton
             // 

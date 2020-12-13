@@ -37,9 +37,10 @@ namespace MusicDirectory
             // 
             // addGenreButton
             // 
-            this.addGenreButton.Location = new System.Drawing.Point(288, 310);
+            this.addGenreButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addGenreButton.Location = new System.Drawing.Point(315, 320);
             this.addGenreButton.Name = "addGenreButton";
-            this.addGenreButton.Size = new System.Drawing.Size(180, 24);
+            this.addGenreButton.Size = new System.Drawing.Size(180, 71);
             this.addGenreButton.TabIndex = 11;
             this.addGenreButton.Text = "Добавить жанр";
             this.addGenreButton.UseVisualStyleBackColor = true;
@@ -47,17 +48,21 @@ namespace MusicDirectory
             // 
             // genreTextBox
             // 
-            this.genreTextBox.Location = new System.Drawing.Point(288, 193);
+            this.genreTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.genreTextBox.Location = new System.Drawing.Point(315, 193);
             this.genreTextBox.Name = "genreTextBox";
-            this.genreTextBox.Size = new System.Drawing.Size(180, 22);
+            this.genreTextBox.Size = new System.Drawing.Size(180, 30);
             this.genreTextBox.TabIndex = 12;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(161, 196);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(97, 196);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 17);
+            this.label1.Size = new System.Drawing.Size(184, 25);
             this.label1.TabIndex = 24;
             this.label1.Text = "Название жанра:";
             // 
