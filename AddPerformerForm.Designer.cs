@@ -29,14 +29,19 @@ namespace MusicDirectory
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddPerformerForm));
             this.countryTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.addPerformerButton = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.musicianComboBox = new System.Windows.Forms.ComboBox();
             this.numTextBox = new System.Windows.Forms.TextBox();
             this.groupRadioButton = new System.Windows.Forms.RadioButton();
             this.soloRadioButton = new System.Windows.Forms.RadioButton();
-            this.musicianComboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,6 +82,14 @@ namespace MusicDirectory
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Тип исполнителя";
             // 
+            // musicianComboBox
+            // 
+            this.musicianComboBox.FormattingEnabled = true;
+            this.musicianComboBox.Location = new System.Drawing.Point(6, 60);
+            this.musicianComboBox.Name = "musicianComboBox";
+            this.musicianComboBox.Size = new System.Drawing.Size(168, 24);
+            this.musicianComboBox.TabIndex = 3;
+            // 
             // numTextBox
             // 
             this.numTextBox.Location = new System.Drawing.Point(6, 117);
@@ -106,25 +119,59 @@ namespace MusicDirectory
             this.soloRadioButton.Text = "Сольный";
             this.soloRadioButton.UseVisualStyleBackColor = true;
             // 
-            // musicianComboBox
+            // label1
             // 
-            this.musicianComboBox.FormattingEnabled = true;
-            this.musicianComboBox.Location = new System.Drawing.Point(6, 60);
-            this.musicianComboBox.Name = "musicianComboBox";
-            this.musicianComboBox.Size = new System.Drawing.Size(168, 24);
-            this.musicianComboBox.TabIndex = 3;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(125, 108);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(166, 17);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Название исполнителя:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(141, 149);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(150, 17);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Страна исполнителя:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(170, 262);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(121, 17);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "ФИО музыканта:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(130, 319);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(162, 17);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Количество учасников:";
             // 
             // AddPerformerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.addPerformerButton);
             this.Controls.Add(this.countryTextBox);
             this.Name = "AddPerformerForm";
-            this.Text = "AddPerformerForm";
+            this.Text = "Добавить исполнителя";
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
             this.ResumeLayout(false);
@@ -142,5 +189,9 @@ namespace MusicDirectory
         private System.Windows.Forms.RadioButton soloRadioButton;
         private System.Windows.Forms.TextBox numTextBox;
         private System.Windows.Forms.ComboBox musicianComboBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -39,23 +39,6 @@ namespace MusicDirectory
                     else
                     {
                         MenuAdminForm form = new MenuAdminForm();
-                        var performer = db.Performer;
-                        var genre = db.Genre;
-                        var album = db.Album;
-                        var track = db.Track;
-
-                        foreach (Performer p in performer)
-                        {
-                            MenuAdminForm.instance.AddPerformer(p.ArtistName);
-                        }
-                        foreach (Genre g in genre)
-                        {
-                            MenuAdminForm.instance.AddGenre(g.GenreName);
-                        }
-                        foreach (Album a in album)
-                        {
-                            MenuAdminForm.instance.AddAlbum(a.AlbumTitle);
-                        }
                         form.Show();
                     }
                     connect = true;

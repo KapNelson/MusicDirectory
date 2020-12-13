@@ -90,17 +90,12 @@ namespace MusicDirectory
             form.Show();
         }
 
-        private void deleteTrackButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private SqlConnection sqlConnection = null;
         private SqlCommandBuilder sqlBuilder = null;
         private SqlDataAdapter sqlDataAdapter = null;
         private DataSet dataSet = null;
         private bool newRowAdding = false;
-        public void LoadData()
+        public void LoadDataTrack()
         {
             try 
             {
@@ -114,7 +109,7 @@ namespace MusicDirectory
                 sqlDataAdapter.Fill(dataSet, "Track");
                 trackDataGridView.DataSource = dataSet.Tables["Track"];
 
-                for(int i = 0; i<trackDataGridView.Rows.Count; i++)
+                for (int i = 0; i < trackDataGridView.Rows.Count; i++)
                 {
                     DataGridViewLinkCell linkCell = new DataGridViewLinkCell();
                     trackDataGridView[8, i] = linkCell;
@@ -126,7 +121,7 @@ namespace MusicDirectory
             }
         }
 
-        public void ReloadData()
+        public void ReloadDataTrack()
         {
             try
             {
@@ -146,18 +141,79 @@ namespace MusicDirectory
                 MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        /*public void LoadDataUsers()
+        {
+            try
+            {
+                sqlDataAdapter = new SqlDataAdapter("SELECT *, 'Delete' AS [Command] FROM Users", sqlConnection);
+                sqlBuilder = new SqlCommandBuilder(sqlDataAdapter);
+                sqlBuilder.GetInsertCommand();
+                sqlBuilder.GetUpdateCommand();
+                sqlBuilder.GetDeleteCommand();
+
+                dataSet = new DataSet();
+                sqlDataAdapter.Fill(dataSet, "Users");
+                usersDataGridView.DataSource = dataSet.Tables["Users"];
+
+                for (int i = 0; i < usersDataGridView.Rows.Count; i++)
+                {
+                    DataGridViewLinkCell linkCell = new DataGridViewLinkCell();
+                    usersDataGridView[3, i] = linkCell;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void ReloadDataUsers()
+        {
+            try
+            {
+                dataSet.Tables["Users"].Clear();
+
+                sqlDataAdapter.Fill(dataSet, "Users");
+                usersDataGridView.DataSource = dataSet.Tables["Users"];
+
+                for (int i = 0; i < usersDataGridView.Rows.Count; i++)
+                {
+                    DataGridViewLinkCell linkCell = new DataGridViewLinkCell();
+                    trackDataGridView[3, i] = linkCell;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }*/
         private void MenuAdminForm_Load(object sender, EventArgs e)
         {
            
             string connectionString = "data source=DESKTOP-0NEUOAJ;initial catalog=MusicDirectory;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
             sqlConnection = new SqlConnection(connectionString);
             sqlConnection.Open();
-            LoadData();
-        }
-
-        private void reloadButton_Click(object sender, EventArgs e)
-        {
-            ReloadData();
+            
+            MusicDirectoryContext db = new MusicDirectoryContext();
+            
+            var performer = db.Performer;
+            var genre = db.Genre;
+            var album = db.Album;
+            foreach (Performer p in performer)
+            {
+                AddPerformer(p.ArtistName);
+            }
+            foreach (Genre g in genre)
+            {
+                AddGenre(g.GenreName);
+            }
+            foreach (Album a in album)
+            {
+               AddAlbum(a.AlbumTitle);
+            }
+           
+            LoadDataTrack();
+            //LoadDataUsers();
         }
 
         private void trackDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -180,43 +236,49 @@ namespace MusicDirectory
                     }
                     else if(task == "Insert")
                     {
-                        int rowIndex = trackDataGridView.Rows.Count - 2;
-                        DataRow row = dataSet.Tables["Track"].NewRow();
+                        if (MessageBox.Show("Добавить новую строку?", "Добавление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            int rowIndex = trackDataGridView.Rows.Count - 2;
+                            DataRow row = dataSet.Tables["Track"].NewRow();
 
-                        row["NameOfTrack"] = trackDataGridView.Rows[rowIndex].Cells["NameOfTrack"].Value;
-                        row["TrackRecYear"] = trackDataGridView.Rows[rowIndex].Cells["TrackRecYear"].Value;
-                        row["ID_Artist"] = trackDataGridView.Rows[rowIndex].Cells["ID_Artist"].Value;
-                        row["Duration"] = trackDataGridView.Rows[rowIndex].Cells["Duration"].Value;
-                        row["AlbumNumber"] = trackDataGridView.Rows[rowIndex].Cells["AlbumNumber"].Value;
-                        row["GenreName"] = trackDataGridView.Rows[rowIndex].Cells["GenreName"].Value;
-                        row["ID_Album"] = trackDataGridView.Rows[rowIndex].Cells["ID_Album"].Value;
+                            row["NameOfTrack"] = trackDataGridView.Rows[rowIndex].Cells["NameOfTrack"].Value;
+                            row["TrackRecYear"] = trackDataGridView.Rows[rowIndex].Cells["TrackRecYear"].Value;
+                            row["ID_Artist"] = trackDataGridView.Rows[rowIndex].Cells["ID_Artist"].Value;
+                            row["Duration"] = trackDataGridView.Rows[rowIndex].Cells["Duration"].Value;
+                            row["AlbumNumber"] = trackDataGridView.Rows[rowIndex].Cells["AlbumNumber"].Value;
+                            row["GenreName"] = trackDataGridView.Rows[rowIndex].Cells["GenreName"].Value;
+                            row["ID_Album"] = trackDataGridView.Rows[rowIndex].Cells["ID_Album"].Value;
 
-                        dataSet.Tables["Track"].Rows.Add(row);
-                        dataSet.Tables["Track"].Rows.RemoveAt(dataSet.Tables["Track"].Rows.Count - 1);
-                        trackDataGridView.Rows.RemoveAt(trackDataGridView.Rows.Count - 2);
-                        trackDataGridView.Rows[e.RowIndex].Cells[8].Value = "Delete";
+                            dataSet.Tables["Track"].Rows.Add(row);
+                            dataSet.Tables["Track"].Rows.RemoveAt(dataSet.Tables["Track"].Rows.Count - 1);
+                            trackDataGridView.Rows.RemoveAt(trackDataGridView.Rows.Count - 2);
+                            trackDataGridView.Rows[e.RowIndex].Cells[8].Value = "Delete";
 
-                        sqlDataAdapter.Update(dataSet, "Track");
-                        newRowAdding = false;
+                            sqlDataAdapter.Update(dataSet, "Track");
+                            newRowAdding = false;
+                        }
                     }
                     else if(task == "Update")
                     {
-                        int r = e.RowIndex;
+                        if (MessageBox.Show("Обновить строку?", "Обновление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            int r = e.RowIndex;
 
-                        dataSet.Tables["Track"].Rows[r]["NameOfTrack"] = trackDataGridView.Rows[r].Cells["NameOfTrack"].Value;
-                        dataSet.Tables["Track"].Rows[r]["TrackRecYear"] = trackDataGridView.Rows[r].Cells["TrackRecYear"].Value;
-                        dataSet.Tables["Track"].Rows[r]["ID_Artist"] = trackDataGridView.Rows[r].Cells["ID_Artist"].Value;
-                        dataSet.Tables["Track"].Rows[r]["Duration"] = trackDataGridView.Rows[r].Cells["Duration"].Value;
-                        dataSet.Tables["Track"].Rows[r]["AlbumNumber"] = trackDataGridView.Rows[r].Cells["AlbumNumber"].Value;
-                        dataSet.Tables["Track"].Rows[r]["GenreName"] = trackDataGridView.Rows[r].Cells["GenreName"].Value;
-                        dataSet.Tables["Track"].Rows[r]["ID_Album"] = trackDataGridView.Rows[r].Cells["ID_Album"].Value;
+                            dataSet.Tables["Track"].Rows[r]["NameOfTrack"] = trackDataGridView.Rows[r].Cells["NameOfTrack"].Value;
+                            dataSet.Tables["Track"].Rows[r]["TrackRecYear"] = trackDataGridView.Rows[r].Cells["TrackRecYear"].Value;
+                            dataSet.Tables["Track"].Rows[r]["ID_Artist"] = trackDataGridView.Rows[r].Cells["ID_Artist"].Value;
+                            dataSet.Tables["Track"].Rows[r]["Duration"] = trackDataGridView.Rows[r].Cells["Duration"].Value;
+                            dataSet.Tables["Track"].Rows[r]["AlbumNumber"] = trackDataGridView.Rows[r].Cells["AlbumNumber"].Value;
+                            dataSet.Tables["Track"].Rows[r]["GenreName"] = trackDataGridView.Rows[r].Cells["GenreName"].Value;
+                            dataSet.Tables["Track"].Rows[r]["ID_Album"] = trackDataGridView.Rows[r].Cells["ID_Album"].Value;
 
-                        sqlDataAdapter.Update(dataSet, "Track");
+                            sqlDataAdapter.Update(dataSet, "Track");
 
-                        trackDataGridView.Rows[e.RowIndex].Cells[8].Value = "Delete";
+                            trackDataGridView.Rows[e.RowIndex].Cells[8].Value = "Delete";
+                        }
                     }
 
-                    ReloadData();
+                    ReloadDataTrack();
                 }
             }
             catch (Exception ex)
@@ -287,5 +349,117 @@ namespace MusicDirectory
                 e.Handled = true;
             }
         }
+        private void reloadTrackButton_Click(object sender, EventArgs e)
+        {
+            ReloadDataTrack();
+        }
+
+       /* private void usersDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == 8)
+                {
+                    string task = usersDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
+
+                    if (task == "Delete")
+                    {
+                        if (MessageBox.Show("Удалить эту строку?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            int rowIndex = e.RowIndex;
+                            usersDataGridView.Rows.RemoveAt(rowIndex);
+                            dataSet.Tables["Users"].Rows[rowIndex].Delete();
+                            sqlDataAdapter.Update(dataSet, "Users");
+                        }
+                    }
+                    else if (task == "Insert")
+                    {
+                        if (MessageBox.Show("Добавить новую строку?", "Добавление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            int rowIndex = usersDataGridView.Rows.Count - 2;
+                            DataRow row = dataSet.Tables["Users"].NewRow();
+
+                            row["Login"] = usersDataGridView.Rows[rowIndex].Cells["Login"].Value;
+                            row["Password"] = usersDataGridView.Rows[rowIndex].Cells["Password"].Value;
+                            row["Admin"] = usersDataGridView.Rows[rowIndex].Cells["Admin"].Value;
+
+                            dataSet.Tables["Users"].Rows.Add(row);
+                            dataSet.Tables["Users"].Rows.RemoveAt(dataSet.Tables["Users"].Rows.Count - 1);
+                            usersDataGridView.Rows.RemoveAt(usersDataGridView.Rows.Count - 2);
+                            usersDataGridView.Rows[e.RowIndex].Cells[3].Value = "Delete";
+
+                            sqlDataAdapter.Update(dataSet, "Users");
+                            newRowAdding = false;
+                        }
+                    }
+                    else if (task == "Update")
+                    {
+                        if (MessageBox.Show("Обновить строку?", "Обновление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            int r = e.RowIndex;
+
+                            dataSet.Tables["Users"].Rows[r]["Login"] = usersDataGridView.Rows[r].Cells["Login"].Value;
+                            dataSet.Tables["Users"].Rows[r]["Password"] = usersDataGridView.Rows[r].Cells["Password"].Value;
+                            dataSet.Tables["Users"].Rows[r]["Admin"] = usersDataGridView.Rows[r].Cells["Admin"].Value;
+
+                            sqlDataAdapter.Update(dataSet, "Users");
+
+                            usersDataGridView.Rows[e.RowIndex].Cells[3].Value = "Delete";
+                        }
+                    }
+
+                    ReloadDataUsers();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void usersDataGridView_UserAddedRow(object sender, DataGridViewRowEventArgs e)
+        {
+            try
+            {
+                if (newRowAdding == false)
+                {
+                    newRowAdding = true;
+                    int lastRow = usersDataGridView.Rows.Count - 2;
+                    DataGridViewRow row = usersDataGridView.Rows[lastRow];
+                    DataGridViewLinkCell linkCell = new DataGridViewLinkCell();
+                    usersDataGridView[3, lastRow] = linkCell;
+                    row.Cells["Command"].Value = "Insert";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void usersDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (newRowAdding == false)
+                {
+                    int rowIndex =usersDataGridView.SelectedCells[0].RowIndex;
+
+                    DataGridViewRow editingRow = usersDataGridView.Rows[rowIndex];
+                    DataGridViewLinkCell linkCell = new DataGridViewLinkCell();
+                    usersDataGridView[3, rowIndex] = linkCell;
+                    editingRow.Cells["Command"].Value = "Update";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void reloadUsersButton_Click(object sender, EventArgs e)
+        {
+            ReloadDataUsers();
+        }*/
     }
 }

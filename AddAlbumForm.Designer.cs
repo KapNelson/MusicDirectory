@@ -29,10 +29,14 @@ namespace MusicDirectory
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAlbumForm));
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.addAlbumButton = new System.Windows.Forms.Button();
             this.yearRecTextBox = new System.Windows.Forms.TextBox();
             this.numTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // nameTextBox
@@ -66,17 +70,49 @@ namespace MusicDirectory
             this.numTextBox.Size = new System.Drawing.Size(181, 22);
             this.numTextBox.TabIndex = 2;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(166, 104);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(136, 17);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Название альбома:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(216, 152);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 17);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Год записи:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(163, 199);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(139, 17);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Количиство треков:";
+            // 
             // AddAlbumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.numTextBox);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.addAlbumButton);
             this.Controls.Add(this.yearRecTextBox);
             this.Name = "AddAlbumForm";
-            this.Text = "AddAlbumForm";
+            this.Text = "Добавить альбом";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -87,5 +123,8 @@ namespace MusicDirectory
         private System.Windows.Forms.Button addAlbumButton;
         private System.Windows.Forms.TextBox yearRecTextBox;
         private System.Windows.Forms.TextBox numTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -21,3 +21,6 @@ D:\Projects\VisualStudioProdjects\MusicDirectory\bin\Debug\ru\EntityFramework.Sq
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.AddGenreForm.resources
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.AddPerformerForm.resources
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.AddAlbumForm.resources
+D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\Interop.WMPLib.dll
+D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.csproj.ResolveComReference.cache
+D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.TrackInfoForm.resources

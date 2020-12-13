@@ -73,13 +73,14 @@ namespace MusicDirectory
             this.regButton.Name = "regButton";
             this.regButton.Size = new System.Drawing.Size(152, 36);
             this.regButton.TabIndex = 3;
-            this.regButton.Text = "Регестрация";
+            this.regButton.Text = "Регистрация";
             this.regButton.UseVisualStyleBackColor = false;
             this.regButton.Click += new System.EventHandler(this.regButton_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(265, 204);
             this.label1.Name = "label1";
