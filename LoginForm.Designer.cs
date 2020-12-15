@@ -42,9 +42,9 @@ namespace MusicDirectory
             // 
             this.loginButton.BackColor = System.Drawing.SystemColors.Control;
             this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginButton.Location = new System.Drawing.Point(297, 346);
+            this.loginButton.Location = new System.Drawing.Point(270, 346);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(152, 36);
+            this.loginButton.Size = new System.Drawing.Size(167, 36);
             this.loginButton.TabIndex = 0;
             this.loginButton.Text = "Вход";
             this.loginButton.UseVisualStyleBackColor = false;
@@ -70,9 +70,9 @@ namespace MusicDirectory
             // 
             this.regButton.BackColor = System.Drawing.SystemColors.Control;
             this.regButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.regButton.Location = new System.Drawing.Point(492, 346);
+            this.regButton.Location = new System.Drawing.Point(495, 346);
             this.regButton.Name = "regButton";
-            this.regButton.Size = new System.Drawing.Size(152, 36);
+            this.regButton.Size = new System.Drawing.Size(167, 36);
             this.regButton.TabIndex = 3;
             this.regButton.Text = "Регистрация";
             this.regButton.UseVisualStyleBackColor = false;

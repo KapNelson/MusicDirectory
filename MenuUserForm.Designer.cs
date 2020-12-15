@@ -37,6 +37,8 @@ namespace MusicDirectory
             this.playButton = new System.Windows.Forms.Button();
             this.pauseButton = new System.Windows.Forms.Button();
             this.infoButton = new System.Windows.Forms.Button();
+            this.playlistButton = new System.Windows.Forms.Button();
+            this.addPlaylistButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // trackListView
@@ -74,7 +76,7 @@ namespace MusicDirectory
             // 
             this.playButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("playButton.BackgroundImage")));
             this.playButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.playButton.Location = new System.Drawing.Point(371, 417);
+            this.playButton.Location = new System.Drawing.Point(347, 417);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(64, 64);
             this.playButton.TabIndex = 1;
@@ -85,7 +87,7 @@ namespace MusicDirectory
             // 
             this.pauseButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pauseButton.BackgroundImage")));
             this.pauseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pauseButton.Location = new System.Drawing.Point(555, 417);
+            this.pauseButton.Location = new System.Drawing.Point(531, 417);
             this.pauseButton.Name = "pauseButton";
             this.pauseButton.Size = new System.Drawing.Size(64, 64);
             this.pauseButton.TabIndex = 2;
@@ -96,12 +98,34 @@ namespace MusicDirectory
             // 
             this.infoButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("infoButton.BackgroundImage")));
             this.infoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.infoButton.Location = new System.Drawing.Point(464, 417);
+            this.infoButton.Location = new System.Drawing.Point(440, 417);
             this.infoButton.Name = "infoButton";
             this.infoButton.Size = new System.Drawing.Size(64, 64);
             this.infoButton.TabIndex = 3;
             this.infoButton.UseVisualStyleBackColor = true;
             this.infoButton.Click += new System.EventHandler(this.infoButton_Click);
+            // 
+            // playlistButton
+            // 
+            this.playlistButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.playlistButton.Location = new System.Drawing.Point(634, 417);
+            this.playlistButton.Name = "playlistButton";
+            this.playlistButton.Size = new System.Drawing.Size(121, 64);
+            this.playlistButton.TabIndex = 4;
+            this.playlistButton.Text = "Мой плейлист";
+            this.playlistButton.UseVisualStyleBackColor = true;
+            this.playlistButton.Click += new System.EventHandler(this.playlistButton_Click);
+            // 
+            // addPlaylistButton
+            // 
+            this.addPlaylistButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addPlaylistButton.Location = new System.Drawing.Point(187, 417);
+            this.addPlaylistButton.Name = "addPlaylistButton";
+            this.addPlaylistButton.Size = new System.Drawing.Size(121, 64);
+            this.addPlaylistButton.TabIndex = 5;
+            this.addPlaylistButton.Text = "Добавить в мой плейлист";
+            this.addPlaylistButton.UseVisualStyleBackColor = true;
+            this.addPlaylistButton.Click += new System.EventHandler(this.addPlaylistButton_Click);
             // 
             // MenuUserForm
             // 
@@ -109,6 +133,8 @@ namespace MusicDirectory
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(942, 493);
+            this.Controls.Add(this.addPlaylistButton);
+            this.Controls.Add(this.playlistButton);
             this.Controls.Add(this.infoButton);
             this.Controls.Add(this.pauseButton);
             this.Controls.Add(this.playButton);
@@ -129,5 +155,7 @@ namespace MusicDirectory
         private System.Windows.Forms.Button playButton;
         private System.Windows.Forms.Button pauseButton;
         private System.Windows.Forms.Button infoButton;
+        private System.Windows.Forms.Button playlistButton;
+        private System.Windows.Forms.Button addPlaylistButton;
     }
 }

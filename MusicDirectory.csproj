@@ -81,6 +81,7 @@
     <Compile Include="Database\Band.cs" />
     <Compile Include="Database\Disk.cs" />
     <Compile Include="Database\Genre.cs" />
+    <Compile Include="Database\Playlist.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

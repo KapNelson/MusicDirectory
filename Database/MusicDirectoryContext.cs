@@ -26,6 +26,7 @@ namespace MusicDirectory
         public virtual DbSet<Participation> Participation { get; set; }
         public virtual DbSet<PlayOn> PlayOn { get; set; }
         public virtual DbSet<Solo> Solo { get; set; }
+        public virtual DbSet<Playlist> Playlist { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

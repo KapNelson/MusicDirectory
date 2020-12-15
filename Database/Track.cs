@@ -40,9 +40,10 @@ namespace MusicDirectory
 
         public virtual Genre Genre { get; set; }
 
+        public virtual Performer Performer { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Mixed> Mixed { get; set; }
-
-        public virtual Performer Performer { get; set; }
+        public virtual ICollection<Playlist> Playlist { get; set; }
     }
 }
