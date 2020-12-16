@@ -25,7 +25,7 @@ namespace MusicDirectory
                 string[] str = new string[] { el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear) };
                 ListViewItem listViewItem = new ListViewItem(str);
                 trackListView.Items.Add(listViewItem);
-            }
+            } 
         }
 
         private void playButton_Click(object sender, EventArgs e)
@@ -131,7 +131,7 @@ namespace MusicDirectory
                 trackListView.SelectedItems[0].Remove();
                 int numberOfRowDeleted = db.Database.ExecuteSqlCommand("DELETE FROM Playlist WHERE ID_Track=" + Convert.ToString(id_track) + " AND Login='" + LoginForm.instance.GetUser() + "';");
                 MessageBox.Show("Трек успешно удалён из плейлиста!");
-                db.SaveChanges();
+                //db.SaveChanges();
             }
         }
     }

@@ -20,7 +20,6 @@ namespace MusicDirectory
             MusicDirectoryContext db = new MusicDirectoryContext();
             Performer newPerformer = new Performer { ArtistName = nameTextBox.Text, Country = countryTextBox.Text };
             db.Performer.Add(newPerformer);
-            db.SaveChanges();
 
             var musician = db.Musician;
             int id_musician = 0;
@@ -41,15 +40,23 @@ namespace MusicDirectory
             {    
                 Solo newSolo = new Solo { ID_Artist = id_performer, ID_Musician = id_musician };
                 db.Solo.Add(newSolo);
+                db.SaveChanges();
             }
             else
             {
                 Band newBand = new Band { ID_Artist = id_performer, NumOfParticipants = Convert.ToInt32(numTextBox.Text) };
                 db.Band.Add(newBand);
+                db.SaveChanges();
+                AddParticipationForm form = new AddParticipationForm(newBand.ID_Artist);
+                form.Show();
             }
             MenuAdminForm.instance.AddPerformer(nameTextBox.Text);
-            db.SaveChanges();
-            MessageBox.Show("Исполнитель успешно добавлен!");
+        }
+
+        private void addMusicianButton_Click(object sender, EventArgs e)
+        {
+            AddMusicianForm form = new AddMusicianForm();
+            form.Show();
         }
     }
 }

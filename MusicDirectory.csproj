@@ -70,6 +70,18 @@
     <Compile Include="AddGenreForm.Designer.cs">
       <DependentUpon>AddGenreForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddMusicianForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddMusicianForm.Designer.cs">
+      <DependentUpon>AddMusicianForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddParticipationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddParticipationForm.Designer.cs">
+      <DependentUpon>AddParticipationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddPerformerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +141,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddGenreForm.resx">
       <DependentUpon>AddGenreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddMusicianForm.resx">
+      <DependentUpon>AddMusicianForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddParticipationForm.resx">
+      <DependentUpon>AddParticipationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddPerformerForm.resx">
       <DependentUpon>AddPerformerForm.cs</DependentUpon>

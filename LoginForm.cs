@@ -7,6 +7,7 @@ namespace MusicDirectory
     {
         public static LoginForm instance;
         private string currUser;
+        private MusicDirectoryContext db = new MusicDirectoryContext();
         public string GetUser()
         {
             return currUser;
@@ -23,9 +24,7 @@ namespace MusicDirectory
             string passUser = passwordTextBox.Text;
             bool connect = false;
 
-            MusicDirectoryContext db = new MusicDirectoryContext();
-
-            var users = db.Users;
+            var users = db.Database.SqlQuery<Users>("SELECT * FROM Users");      
             
             foreach (Users el in users)
             {
