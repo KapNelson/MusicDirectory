@@ -18,8 +18,8 @@ namespace MusicDirectory
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID_Musician { get; set; }
-        public int? DateOfEntry { get; set; }
-        public int? DateOfLeaving { get; set; }
+        public int? YearOfEntry { get; set; }
+        public int? YearOfLeaving { get; set; }
         public virtual Musician Musician { get; set; }
         public virtual Band Band { get; set; }
     }

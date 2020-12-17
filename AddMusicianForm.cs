@@ -22,6 +22,7 @@ namespace MusicDirectory
         {
             int numberOfRowInserted = db.Database.ExecuteSqlCommand("INSERT INTO Musician (FullName,DateOFBirth) VALUES ('"+nameTextBox.Text+"','"+Convert.ToDateTime(ageTextBox.Text)+"')");
             AddPerformerForm.instance.AddMusician(nameTextBox.Text);
+            AddParticipationForm.instance.UpdateListView();
             //AddParticipationForm.instance.UpdateListView();
             MessageBox.Show("Музыкант успешно добавлен!");
             this.Close();

@@ -25,7 +25,6 @@ namespace MusicDirectory
 
         public int? AlbumNumber { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string GenreName { get; set; }
 

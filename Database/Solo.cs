@@ -13,7 +13,7 @@ namespace MusicDirectory
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID_Artist { get; set; }
 
-        public int ID_Musician { get; set; }
+        public int? ID_Musician { get; set; }
         public virtual Performer Performer { get; set; }
         public virtual Musician Musician { get; set; }
     }
