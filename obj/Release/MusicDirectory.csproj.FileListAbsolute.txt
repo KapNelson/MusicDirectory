@@ -10,9 +10,6 @@ D:\Projects\VisualStudioProdjects\MusicDirectory\bin\Release\ru\EntityFramework.
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.csprojAssemblyReference.cache
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\Interop.WMPLib.dll
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.csproj.ResolveComReference.cache
-D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.AddAlbumForm.resources
-D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.AddGenreForm.resources
-D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.AddPerformerForm.resources
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.LoginForm.resources
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.MenuAdminForm.resources
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.MenuUserForm.resources
@@ -24,3 +21,4 @@ D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.cspr
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.csproj.CopyComplete
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.exe
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.pdb
+D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.AddParticipationForm.resources

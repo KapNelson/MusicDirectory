@@ -7,56 +7,60 @@ namespace MusicDirectory
     {
         public static MenuAdminForm instance;
         MusicDirectoryContext db = new MusicDirectoryContext();
-        public void AddPerformer(string performer)
-        {
-            performerComboBox.Items.Add(performer);
-        }
-        public void AddGenre(string genre)
-        {
-            genreComboBox.Items.Add(genre);
-        }
-        public void AddAlbum(string album)
-        {
-            albumComboBox.Items.Add(album);
-        }
+        
         public MenuAdminForm()
         {
             InitializeComponent();
             instance = this;
         }
-        private void addTrackButton_Click(object sender, EventArgs e)
-        {
-            var performer = db.Performer;
-            int id_performer = 0;
-            var album = db.Album;
-            int id_album = 0;
-
-            foreach (Performer el in performer)
+        private void MenuAdminForm_Load(object sender, EventArgs e)
+        {           
+            var users = db.Database.SqlQuery<Users>("SELECT * FROM Users");
+            foreach (var el in users)
             {
-                if (performerComboBox.Text == el.ArtistName)
-                    id_performer = el.ID_Artist;
-            }
-            foreach (Album el in album)
-            {
-                if (albumComboBox.Text == el.AlbumTitle)
-                    id_album = el.ID_Album;
+                string[] str = new string[] { el.Login, el.Password, Convert.ToString(el.Admin) };
+                ListViewItem listViewItem = new ListViewItem(str);
+                usersListView.Items.Add(listViewItem); 
             }
 
-            Track newTrack = new Track
+            PrintTrack();
+            PrintAlbum();
+            PrintGenre();
+            PrintMusInstr();
+            PrintMusician();
+            PrintPerformer();
+
+            var performer = db.Database.SqlQuery<Performer>("SELECT * FROM Performer");
+            foreach (var el in performer)
             {
-                NameOfTrack = nameTextBox.Text,
-                TrackRecYear = Convert.ToInt32(yearRecTextBox.Text),
-                Duration = durationTextBox.Text,
-                AlbumNumber = Convert.ToInt32(numTextBox.Text),
-                GenreName = genreComboBox.Text,
-                ID_Album = id_album,
-                ID_Artist = id_performer
-            };
-            db.Track.Add(newTrack);
-            db.SaveChanges();
-            MessageBox.Show("Трек успешно добавлен!");
+                string[] str = new string[] { Convert.ToString(el.ID_Artist), el.ArtistName };
+                ListViewItem listViewItem = new ListViewItem(str);
+                trackPerListView.Items.Add(listViewItem);
+            }
+            var genre = db.Database.SqlQuery<Genre>("SELECT * FROM Genre");
+            foreach (var el in genre)
+            {
+                trackGenreListBox.Items.Add(el.GenreName);
+            }
+            var album = db.Database.SqlQuery<Album>("SELECT * FROM Album");
+            foreach (var el in album)
+            {
+                string[] str = new string[] { Convert.ToString(el.ID_Album), el.AlbumTitle, Convert.ToString(el.AlbumRecYear) };
+                ListViewItem listViewItem = new ListViewItem(str);
+                trackAlbumListView.Items.Add(listViewItem);
+            }
         }
-        private void PrintAldum()
+        private void PrintTrack()
+        {
+            var track = db.Track;
+            foreach (Track el in track)
+            {
+                string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear), el.Album.AlbumTitle, Convert.ToString(el.AlbumNumber), el.GenreName, el.Duration };
+                ListViewItem listViewItem = new ListViewItem(str);
+                trackListView.Items.Add(listViewItem);
+            }
+        }
+        private void PrintAlbum()
         {
             var albums = db.Database.SqlQuery<Album>("SELECT * FROM Album");
             foreach (var el in albums)
@@ -145,36 +149,6 @@ namespace MusicDirectory
             }
 
         }
-        private void MenuAdminForm_Load(object sender, EventArgs e)
-        {           
-            var performer = db.Performer;
-            var genre = db.Genre;
-            var album = db.Album;
-            foreach (Performer p in performer)
-            {
-                AddPerformer(p.ArtistName);
-            }
-            foreach (Genre g in genre)
-            {
-                AddGenre(g.GenreName);
-            }
-            foreach (Album a in album)
-            {
-               AddAlbum(a.AlbumTitle);
-            }
-            var users = db.Database.SqlQuery<Users>("SELECT * FROM Users");
-            foreach (var el in users)
-            {
-                string[] str = new string[] { el.Login, el.Password, Convert.ToString(el.Admin) };
-                ListViewItem listViewItem = new ListViewItem(str);
-                usersListView.Items.Add(listViewItem); 
-            }
-            PrintAldum();
-            PrintGenre();
-            PrintMusInstr();
-            PrintMusician();
-            PrintPerformer();
-        }
 
         //Users
         private void deleteUserButton_Click(object sender, EventArgs e)
@@ -195,7 +169,16 @@ namespace MusicDirectory
                         "'," + yearRecAlbumTextBox.Text + "," + numAlbumTextBox.Text + ");");
 
                     albumListView.Items.Clear();
-                    PrintAldum();
+                    PrintAlbum();
+
+                    trackAlbumListView.Items.Clear();
+                    var album = db.Database.SqlQuery<Album>("SELECT * FROM Album");
+                    foreach (var el in album)
+                    {
+                        string[] str = new string[] { Convert.ToString(el.ID_Album), el.AlbumTitle, Convert.ToString(el.AlbumRecYear) };
+                        ListViewItem listViewItem = new ListViewItem(str);
+                        trackAlbumListView.Items.Add(listViewItem);
+                    }
 
                     MessageBox.Show("Альбом успешно добавлен!");
                 }
@@ -243,6 +226,16 @@ namespace MusicDirectory
             {
                 int numberOfRowDeleted = db.Database.ExecuteSqlCommand("DELETE FROM Album WHERE ID_Album='" + albumListView.SelectedItems[0].Text + "';");
                 albumListView.SelectedItems[0].Remove();
+
+                trackAlbumListView.Items.Clear();
+                var album = db.Database.SqlQuery<Album>("SELECT * FROM Album");
+                foreach (var el in album)
+                {
+                    string[] str = new string[] { Convert.ToString(el.ID_Album), el.AlbumTitle, Convert.ToString(el.AlbumRecYear) };
+                    ListViewItem listViewItem = new ListViewItem(str);
+                    trackAlbumListView.Items.Add(listViewItem);
+                }
+
                 MessageBox.Show("Альбом успешно удалён!");
             }
             catch (Exception ex)
@@ -269,6 +262,13 @@ namespace MusicDirectory
                 genreListBox.Items.Clear();
                 PrintGenre();
 
+                trackGenreListBox.Items.Clear();
+                var genre = db.Database.SqlQuery<Genre>("SELECT * FROM Genre");
+                foreach (var el in genre)
+                {
+                    trackGenreListBox.Items.Add(el.GenreName);
+                }
+
                 MessageBox.Show("Жанр успешно добавлен!");
             }
             catch (Exception ex)
@@ -282,8 +282,10 @@ namespace MusicDirectory
             try
             {
                 int numberOfRowDeleted = db.Database.ExecuteSqlCommand("DELETE FROM Genre WHERE GenreName='" + genreTextBox2.Text + "';");
-                genreListBox.Items.Clear();
-                PrintGenre();
+
+                genreListBox.Items.Remove(genreTextBox2.Text);
+
+                trackGenreListBox.Items.Remove(genreTextBox2.Text);
 
                 MessageBox.Show("Жанр успешно удалён!");
             }
@@ -458,6 +460,15 @@ namespace MusicDirectory
                 performerListView.Items.Clear();
                 PrintPerformer();
 
+                trackPerListView.Items.Clear();
+                var performer = db.Database.SqlQuery<Performer>("SELECT * FROM Performer");
+                foreach (var el in performer)
+                {
+                    string[] str = new string[] { Convert.ToString(el.ID_Artist), el.ArtistName };
+                    ListViewItem listViewItem = new ListViewItem(str);
+                    trackPerListView.Items.Add(listViewItem);
+                }
+
                 int id_performer = 0;
                 var lastPer = db.Database.SqlQuery<Performer>("SELECT * FROM Performer WHERE ID_Artist=(SELECT MAX(ID_Artist) FROM Performer);");
 
@@ -515,6 +526,16 @@ namespace MusicDirectory
             {
                 int numberOfRowDeleted = db.Database.ExecuteSqlCommand("DELETE FROM Performer WHERE ID_Artist='" + performerListView.SelectedItems[0].Text + "';");
                 performerListView.SelectedItems[0].Remove();
+
+                trackPerListView.Items.Clear();
+                var performer = db.Database.SqlQuery<Performer>("SELECT * FROM Performer");
+                foreach (var el in performer)
+                {
+                    string[] str = new string[] { Convert.ToString(el.ID_Artist), el.ArtistName };
+                    ListViewItem listViewItem = new ListViewItem(str);
+                    trackPerListView.Items.Add(listViewItem);
+                }
+
                 MessageBox.Show("Исполнитель успешно удалён!");
             }
             catch (Exception ex)
@@ -565,6 +586,117 @@ namespace MusicDirectory
             {
                 MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        //Track
+        private void addTrackButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (int.TryParse(yearRecTextBox.Text, out int result1) && int.TryParse(numTextBox.Text, out int result2))
+                {
+                    int numberOfRowUpdated = db.Database.ExecuteSqlCommand("INSERT INTO Track (NameOfTrack, ID_Artist, TrackRecYear, ID_Album, AlbumNumber, GenreName, Duration) VALUES ('" 
+                        + nameTextBox.Text + "'," 
+                        + trackPerListView.SelectedItems[0].Text + "," 
+                        + yearRecTextBox.Text + ","
+                        + trackAlbumListView.SelectedItems[0].Text + ","
+                        + numTextBox.Text + ",'" 
+                        + genreTextBox.Text + "','" 
+                        + durationTextBox.Text + "');");
+
+                    trackListView.Items.Clear();
+                    PrintTrack();
+
+
+                    MessageBox.Show("Трек успешно добавлен!");
+                }
+                else
+                {
+                    MessageBox.Show("Вы ввели не число в числовое поле!\nПовторите попытку!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void updateTrackButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (int.TryParse(yearRecTextBox.Text, out int result1) && int.TryParse(numTextBox.Text, out int result2))
+                {
+                    int numberOfRowUpdated = db.Database.ExecuteSqlCommand("UPDATE Track SET NameOfTrack='" + nameTextBox.Text
+                        + "', ID_Artist=" + trackPerListView.SelectedItems[0].Text
+                        + ", TrackRecYear=" + yearRecTextBox.Text 
+                        + ", ID_Album=" + trackAlbumListView.SelectedItems[0].Text 
+                        + ", AlbumNumber=" + numTextBox.Text 
+                        + ", GenreName='" + genreTextBox.Text
+                        + "', Duration='" + durationTextBox.Text
+                        + "' WHERE ID_Track=" + trackListView.SelectedItems[0].Text + ";");
+
+                     trackListView.SelectedItems[0].SubItems[1].Text = nameTextBox.Text;
+                     trackListView.SelectedItems[0].SubItems[2].Text = performerTextBox.Text;
+                     trackListView.SelectedItems[0].SubItems[3].Text = yearRecTextBox.Text;
+                     trackListView.SelectedItems[0].SubItems[4].Text = albumTextBox.Text;
+                     trackListView.SelectedItems[0].SubItems[5].Text = numTextBox.Text;
+                     trackListView.SelectedItems[0].SubItems[6].Text = genreTextBox.Text;
+                     trackListView.SelectedItems[0].SubItems[7].Text = durationTextBox.Text;
+
+                    MessageBox.Show("Трек успешно обновлён!");
+                }
+                else
+                {
+                    MessageBox.Show("Вы ввели не число в числовое поле!\nПовторите попытку!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void deleteTrackButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int numberOfRowDeleted = db.Database.ExecuteSqlCommand("DELETE FROM Track WHERE ID_Track='" + trackListView.SelectedItems[0].Text + "';");
+                trackListView.SelectedItems[0].Remove();
+
+                MessageBox.Show("Трек успешно удалён!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void trackListView_Click(object sender, EventArgs e)
+        {
+            nameTextBox.Text = trackListView.SelectedItems[0].SubItems[1].Text;
+            performerTextBox.Text = trackListView.SelectedItems[0].SubItems[2].Text;
+            yearRecTextBox.Text = trackListView.SelectedItems[0].SubItems[3].Text;
+            albumTextBox.Text = trackListView.SelectedItems[0].SubItems[4].Text;
+            numTextBox.Text = trackListView.SelectedItems[0].SubItems[5].Text;
+            genreTextBox.Text = trackListView.SelectedItems[0].SubItems[6].Text;
+            durationTextBox.Text = trackListView.SelectedItems[0].SubItems[7].Text;
+        }
+
+        private void trackPerListView_Click(object sender, EventArgs e)
+        {
+            performerTextBox.Text = trackPerListView.SelectedItems[0].SubItems[1].Text;
+
+        }
+
+        private void trackGenreListBox_Click(object sender, EventArgs e)
+        {
+            genreTextBox.Text = trackGenreListBox.Text;
+        }
+
+        private void trackAlbumListView_Click(object sender, EventArgs e)
+        {
+            albumTextBox.Text = trackAlbumListView.SelectedItems[0].SubItems[1].Text;
         }
     }
 }
