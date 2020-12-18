@@ -95,6 +95,8 @@ namespace MusicDirectory
             this.musPerListView = new System.Windows.Forms.ListView();
             this.idMusPerColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nameMusPerColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dateEColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dateLColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.deletePerformerButton = new System.Windows.Forms.Button();
             this.updatePerformerButton = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
@@ -124,8 +126,6 @@ namespace MusicDirectory
             this.deleteMusInstrButton = new System.Windows.Forms.Button();
             this.musInstrListBox = new System.Windows.Forms.ListBox();
             this.genreListBox = new System.Windows.Forms.ListBox();
-            this.dateEColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.dateLColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.adminTabControl.SuspendLayout();
@@ -172,6 +172,7 @@ namespace MusicDirectory
             this.passwordColumn,
             this.adminColumn});
             this.usersListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.usersListView.FullRowSelect = true;
             this.usersListView.HideSelection = false;
             this.usersListView.Location = new System.Drawing.Point(11, 6);
             this.usersListView.Name = "usersListView";
@@ -311,7 +312,6 @@ namespace MusicDirectory
             this.addAlbumButton.TabIndex = 21;
             this.addAlbumButton.Text = "Добавить альбом";
             this.addAlbumButton.UseVisualStyleBackColor = true;
-            this.addAlbumButton.Click += new System.EventHandler(this.addAlbumButton_Click);
             // 
             // addGenreButton
             // 
@@ -322,7 +322,6 @@ namespace MusicDirectory
             this.addGenreButton.TabIndex = 20;
             this.addGenreButton.Text = "Добавить жанр";
             this.addGenreButton.UseVisualStyleBackColor = true;
-            this.addGenreButton.Click += new System.EventHandler(this.addGenreButton_Click);
             // 
             // addPerformerButton
             // 
@@ -333,7 +332,6 @@ namespace MusicDirectory
             this.addPerformerButton.TabIndex = 19;
             this.addPerformerButton.Text = "Добавить исполнителя";
             this.addPerformerButton.UseVisualStyleBackColor = true;
-            this.addPerformerButton.Click += new System.EventHandler(this.addPerformerButton_Click);
             // 
             // nameTextBox
             // 
@@ -826,6 +824,7 @@ namespace MusicDirectory
             this.nameMusPerColumn,
             this.dateEColumn,
             this.dateLColumn});
+            this.musPerListView.FullRowSelect = true;
             this.musPerListView.HideSelection = false;
             this.musPerListView.Location = new System.Drawing.Point(6, 22);
             this.musPerListView.Name = "musPerListView";
@@ -843,6 +842,14 @@ namespace MusicDirectory
             // 
             this.nameMusPerColumn.Text = "ФИО музыканта";
             this.nameMusPerColumn.Width = 126;
+            // 
+            // dateEColumn
+            // 
+            this.dateEColumn.Text = "Дата вступления";
+            // 
+            // dateLColumn
+            // 
+            this.dateLColumn.Text = "Дата выхода";
             // 
             // deletePerformerButton
             // 
@@ -1161,14 +1168,6 @@ namespace MusicDirectory
             this.genreListBox.Size = new System.Drawing.Size(362, 164);
             this.genreListBox.TabIndex = 0;
             this.genreListBox.Click += new System.EventHandler(this.genreListBox_Click);
-            // 
-            // dateEColumn
-            // 
-            this.dateEColumn.Text = "Дата вступления";
-            // 
-            // dateLColumn
-            // 
-            this.dateLColumn.Text = "Дата выхода";
             // 
             // MenuAdminForm
             // 

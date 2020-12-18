@@ -35,7 +35,6 @@ namespace MusicDirectory
             this.nameColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.addInBandButton = new System.Windows.Forms.Button();
             this.addPerformerButton = new System.Windows.Forms.Button();
-            this.addMusicianButton = new System.Windows.Forms.Button();
             this.entryTextBox = new System.Windows.Forms.TextBox();
             this.leavingTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -68,7 +67,7 @@ namespace MusicDirectory
             // addInBandButton
             // 
             this.addInBandButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addInBandButton.Location = new System.Drawing.Point(444, 24);
+            this.addInBandButton.Location = new System.Drawing.Point(444, 76);
             this.addInBandButton.Name = "addInBandButton";
             this.addInBandButton.Size = new System.Drawing.Size(168, 63);
             this.addInBandButton.TabIndex = 30;
@@ -79,24 +78,13 @@ namespace MusicDirectory
             // addPerformerButton
             // 
             this.addPerformerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addPerformerButton.Location = new System.Drawing.Point(444, 232);
+            this.addPerformerButton.Location = new System.Drawing.Point(444, 199);
             this.addPerformerButton.Name = "addPerformerButton";
             this.addPerformerButton.Size = new System.Drawing.Size(168, 63);
             this.addPerformerButton.TabIndex = 31;
             this.addPerformerButton.Text = "Завершить набор";
             this.addPerformerButton.UseVisualStyleBackColor = true;
             this.addPerformerButton.Click += new System.EventHandler(this.addPerformerButton_Click);
-            // 
-            // addMusicianButton
-            // 
-            this.addMusicianButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addMusicianButton.Location = new System.Drawing.Point(444, 121);
-            this.addMusicianButton.Name = "addMusicianButton";
-            this.addMusicianButton.Size = new System.Drawing.Size(168, 63);
-            this.addMusicianButton.TabIndex = 32;
-            this.addMusicianButton.Text = "Добавить музыканта";
-            this.addMusicianButton.UseVisualStyleBackColor = true;
-            this.addMusicianButton.Click += new System.EventHandler(this.addMusicianButton_Click);
             // 
             // entryTextBox
             // 
@@ -149,7 +137,6 @@ namespace MusicDirectory
             this.Controls.Add(this.label1);
             this.Controls.Add(this.leavingTextBox);
             this.Controls.Add(this.entryTextBox);
-            this.Controls.Add(this.addMusicianButton);
             this.Controls.Add(this.addPerformerButton);
             this.Controls.Add(this.addInBandButton);
             this.Controls.Add(this.musicianListView);
@@ -168,7 +155,6 @@ namespace MusicDirectory
         private System.Windows.Forms.ColumnHeader nameColumn;
         private System.Windows.Forms.Button addInBandButton;
         private System.Windows.Forms.Button addPerformerButton;
-        private System.Windows.Forms.Button addMusicianButton;
         private System.Windows.Forms.TextBox entryTextBox;
         private System.Windows.Forms.TextBox leavingTextBox;
         private System.Windows.Forms.Label label1;

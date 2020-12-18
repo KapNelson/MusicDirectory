@@ -30,7 +30,7 @@ namespace MusicDirectory
 
         public int? ID_Album { get; set; }
 
-        public int ID_Artist { get; set; }
+        public int? ID_Artist { get; set; }
 
         [Key]
         public int ID_Track { get; set; }

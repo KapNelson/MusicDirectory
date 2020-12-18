@@ -58,35 +58,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddAlbumForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddAlbumForm.Designer.cs">
-      <DependentUpon>AddAlbumForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AddGenreForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddGenreForm.Designer.cs">
-      <DependentUpon>AddGenreForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AddMusicianForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddMusicianForm.Designer.cs">
-      <DependentUpon>AddMusicianForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="AddParticipationForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddParticipationForm.Designer.cs">
       <DependentUpon>AddParticipationForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AddPerformerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddPerformerForm.Designer.cs">
-      <DependentUpon>AddPerformerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\Album.cs" />
     <Compile Include="Database\Alyubomin.cs" />
@@ -136,20 +112,8 @@
     <Compile Include="TrackInfoForm.Designer.cs">
       <DependentUpon>TrackInfoForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddAlbumForm.resx">
-      <DependentUpon>AddAlbumForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddGenreForm.resx">
-      <DependentUpon>AddGenreForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddMusicianForm.resx">
-      <DependentUpon>AddMusicianForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AddParticipationForm.resx">
       <DependentUpon>AddParticipationForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddPerformerForm.resx">
-      <DependentUpon>AddPerformerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

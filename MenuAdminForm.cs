@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace MusicDirectory
@@ -59,28 +60,28 @@ namespace MusicDirectory
             MessageBox.Show("Трек успешно добавлен!");
         }
 
-        private void addPerformerButton_Click(object sender, EventArgs e)
-        {
-            AddPerformerForm form = new AddPerformerForm();
-            var musician = db.Musician;
-            foreach (Musician m in musician)
-            {
-                AddPerformerForm.instance.AddMusician(m.FullName);
-            }
-            form.Show();
-        }
+        //private void addPerformerButton_Click(object sender, EventArgs e)
+        //{
+        //    AddPerformerForm form = new AddPerformerForm();
+        //    var musician = db.Musician;
+        //    foreach (Musician m in musician)
+        //    {
+        //        AddPerformerForm.instance.AddMusician(m.FullName);
+        //    }
+        //    form.Show();
+        //}
 
-        private void addGenreButton_Click(object sender, EventArgs e)
-        {
-            AddGenreForm form = new AddGenreForm();
-            form.Show();
-        }
+        //private void addGenreButton_Click(object sender, EventArgs e)
+        //{
+        //    AddGenreForm form = new AddGenreForm();
+        //    form.Show();
+        //}
 
-        private void addAlbumButton_Click(object sender, EventArgs e)
-        {
-            AddAlbumForm form = new AddAlbumForm();
-            form.Show();
-        }
+        //private void addAlbumButton_Click(object sender, EventArgs e)
+        //{
+        //    AddAlbumForm form = new AddAlbumForm();
+        //    form.Show();
+        //}
         private void PrintAldum()
         {
             var albums = db.Database.SqlQuery<Album>("SELECT * FROM Album");
@@ -121,7 +122,7 @@ namespace MusicDirectory
         private void PrintPlayOn(string id_musician)
         {
             var playOn = db.PlayOn;
-            foreach(PlayOn el in playOn)
+            foreach (PlayOn el in playOn)
             {
                 if(el.ID_Musician == Convert.ToInt32(id_musician))
                     musInstrMusListBox.Items.Add(el.MusInstrumentName);
@@ -139,15 +140,42 @@ namespace MusicDirectory
         }
         private void PrintParticipation(string id_performer)
         {
-            var part = db.Participation;
-            foreach (Participation el in part)
+            int id_band = 0;
+            bool b = false;
+            var solo = db.Solo;
+            foreach (Solo el in solo)
+            {
+                if(el.ID_Artist == Convert.ToInt32(id_performer))
+                {
+                    string[] str = new string[] { Convert.ToString(el.ID_Musician), el.Musician.FullName, "сольный", "сольный" };
+                    ListViewItem listViewItem = new ListViewItem(str);
+                    musPerListView.Items.Add(listViewItem);
+                    numPerTextBox.Text = "сольный";
+                }
+            }
+
+            var band = db.Band;
+            foreach (Band el in band)
             {
                 if (el.ID_Artist == Convert.ToInt32(id_performer))
                 {
-                    string[] str = new string[] { Convert.ToString(el.ID_Musician), el.Musician.FullName, Convert.ToString(el.YearOfEntry), Convert.ToString(el.YearOfLeaving) };
-                    ListViewItem listViewItem = new ListViewItem(str);
-                    musPerListView.Items.Add(listViewItem);
-                    numPerTextBox.Text = Convert.ToString(el.Band.NumOfParticipants);
+                    id_band = el.ID_Artist;
+                    b = true;
+                }
+            }
+
+            if(b)
+            {
+                var part = db.Participation;
+                foreach (Participation el in part)
+                {
+                    if (el.ID_Artist == id_band)
+                    {
+                        string[] str = new string[] { Convert.ToString(el.ID_Musician), el.Musician.FullName, Convert.ToString(el.YearOfEntry), Convert.ToString(el.YearOfLeaving) };
+                        ListViewItem listViewItem = new ListViewItem(str);
+                        musPerListView.Items.Add(listViewItem);
+                        numPerTextBox.Text = Convert.ToString(el.Band.NumOfParticipants);
+                    }
                 }
             }
         }
@@ -455,17 +483,77 @@ namespace MusicDirectory
         //Performer
         private void addPerformerButton2_Click(object sender, EventArgs e)
         {
+            try
+            {
+                int numberOfRowUpdated = db.Database.ExecuteSqlCommand("INSERT INTO Performer (ArtistName,Country) VALUES ('" + namePerTextBox.Text +
+                "','" + countryTextBox.Text + "');");
 
+                performerListView.Items.Clear();
+                PrintPerformer();
+
+                int id_performer = 0;
+                var lastPer = db.Database.SqlQuery<Performer>("SELECT * FROM Performer WHERE ID_Artist=(SELECT MAX(ID_Artist) FROM Performer);");
+
+                foreach (var el in lastPer)
+                {
+                    id_performer = el.ID_Artist;
+                }
+
+                if (soloRadioButton.Checked)
+                {
+                    int numberOfRowUpdated2 = db.Database.ExecuteSqlCommand("INSERT INTO Solo (ID_Artist,ID_Musician) VALUES (" + Convert.ToString(id_performer) + ",NULL);");
+                }
+                else
+                {
+                    if (int.TryParse(numPerTextBox.Text, out int result))
+                    {
+                        int numberOfRowUpdated3 = db.Database.ExecuteSqlCommand("INSERT INTO Band (ID_Artist,NumOfParticipants) VALUES (" + Convert.ToString(id_performer) + "," + numPerTextBox.Text + ");");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Вы ввели не число в числовое поле!\nПовторите попытку!");
+                    }
+                }
+
+                MessageBox.Show("Исполнитель успешно добавлен!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void updatePerformerButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                int numberOfRowUpdated = db.Database.ExecuteSqlCommand("UPDATE Performer SET ArtistName='" + namePerTextBox.Text +
+                                "', Country='" + countryTextBox.Text +
+                                "' WHERE ID_Artist=" + performerListView.SelectedItems[0].Text + ";");
 
+                performerListView.SelectedItems[0].SubItems[1].Text = namePerTextBox.Text;
+                performerListView.SelectedItems[0].SubItems[2].Text = countryTextBox.Text;
+
+                MessageBox.Show("Исполнитель успешно обновлён!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void deletePerformerButton_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                int numberOfRowDeleted = db.Database.ExecuteSqlCommand("DELETE FROM Performer WHERE ID_Artist='" + performerListView.SelectedItems[0].Text + "';");
+                performerListView.SelectedItems[0].Remove();
+                MessageBox.Show("Исполнитель успешно удалён!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void performerListView_Click(object sender, EventArgs e)
@@ -473,23 +561,7 @@ namespace MusicDirectory
             namePerTextBox.Text = performerListView.SelectedItems[0].SubItems[1].Text;
             countryTextBox.Text = performerListView.SelectedItems[0].SubItems[2].Text;
             musPerListView.Items.Clear();
-
-            bool band = true;
-            var solo = db.Solo;
-            foreach (Solo el in solo)
-            {
-                if (el.ID_Artist == Convert.ToInt32(performerListView.SelectedItems[0].Text))
-                {
-                    string[] str = new string[] { Convert.ToString(el.ID_Musician), el.Musician.FullName, "сольный", "сольный" };
-                    ListViewItem listViewItem = new ListViewItem(str);
-                    musPerListView.Items.Add(listViewItem);
-                    band = false;
-                }
-            }
-            if (band)
-            {
-                PrintParticipation(performerListView.SelectedItems[0].Text);
-            }
+            PrintParticipation(performerListView.SelectedItems[0].Text);
         }
 
         //Band/Solo/Participation
@@ -500,7 +572,17 @@ namespace MusicDirectory
 
         private void deletePartButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                int numberOfRowDeleted = db.Database.ExecuteSqlCommand("DELETE FROM Participation WHERE ID_Musician='" + musPerListView.SelectedItems[0].Text + "' AND ID_Artist=" + performerListView.SelectedItems[0].Text + ";");
+                musPerListView.SelectedItems[0].Remove();
 
+                MessageBox.Show("Музыкант успешно удалён!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

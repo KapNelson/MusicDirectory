@@ -41,8 +41,7 @@ namespace MusicDirectory
 
             modelBuilder.Entity<Genre>()
                 .HasMany(e => e.Track)
-                .WithRequired(e => e.Genre)
-                .WillCascadeOnDelete(false);
+                .WithRequired(e => e.Genre);
 
             modelBuilder.Entity<Performer>()
                 .HasOptional(e => e.Band)
@@ -50,16 +49,15 @@ namespace MusicDirectory
 
             modelBuilder.Entity<Performer>()
                 .HasMany(e => e.Track)
-                .WithRequired(e => e.Performer)
-                .WillCascadeOnDelete(false);
+                .WithRequired(e => e.Performer);
 
             modelBuilder.Entity<Performer>()
                 .HasOptional(e => e.Solo)
                 .WithRequired(e => e.Performer);
 
-            modelBuilder.Entity<Musician>()
-                .HasOptional(e => e.Solo)
-                .WithRequired(e => e.Musician);
+            //modelBuilder.Entity<Musician>()
+            //    .HasOptional(e => e.Solo)
+            //    .WithRequired(e => e.Musician);
         }
     }
 }

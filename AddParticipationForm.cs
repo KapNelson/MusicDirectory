@@ -53,11 +53,5 @@ namespace MusicDirectory
         {
             MessageBox.Show("Исполнитель успешно добавлен!");
         }
-
-        private void addMusicianButton_Click(object sender, EventArgs e)
-        {
-            AddMusicianForm form = new AddMusicianForm();
-            form.Show();
-        }
     }
 }
