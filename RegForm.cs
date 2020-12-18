@@ -15,7 +15,7 @@ namespace MusicDirectory
             string loginUser = loginTextBox.Text;
             string passUser = passwordTextBox.Text;
             string repassUser = repasswordTextBox.Text;
-            bool admin = adminCheckBox.Checked;
+            string roleUser = roleComboBox.Text;
             bool c = false;
 
             MusicDirectoryContext db = new MusicDirectoryContext();
@@ -34,7 +34,7 @@ namespace MusicDirectory
             {
                 if (passUser == repassUser)
                 {
-                    Users newUser = new Users { Login = loginUser, Password = passUser, Admin = admin };
+                    Users newUser = new Users { Login = loginUser, Password = passUser, Admin = roleUser };
                     db.Users.Add(newUser);
                     db.SaveChanges();
                     this.Close();

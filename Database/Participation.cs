@@ -20,6 +20,9 @@ namespace MusicDirectory
         public int ID_Musician { get; set; }
         public int? YearOfEntry { get; set; }
         public int? YearOfLeaving { get; set; }
+        
+        [StringLength(50)]
+        public string Role { get; set; }
         public virtual Musician Musician { get; set; }
         public virtual Band Band { get; set; }
     }

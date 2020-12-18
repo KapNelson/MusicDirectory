@@ -30,19 +30,24 @@ namespace MusicDirectory
             {
                 if(loginUser == el.Login && passUser == el.Password)
                 {
-                    if (!el.Admin)
+                    string role = el.Admin;
+                    switch (role)
                     {
-                        MenuUserForm form = new MenuUserForm();
-                        currUser = loginUser;
-                        form.Show();
-                    }
-                    else
-                    {
-                        MenuAdminForm form = new MenuAdminForm();
-                        form.Show();
-                    }
+                        case "Пользователь":
+                            MenuUserForm form1 = new MenuUserForm();
+                            currUser = loginUser;
+                            form1.Show();
+                            break;
+                        case "Администратор":
+                            MenuAdminForm form2 = new MenuAdminForm();
+                            form2.Show();
+                            break;
+                        case "Производитель":
+                            MenuDiskForm form3 = new MenuDiskForm();
+                            form3.Show();
+                            break;
+                    }                  
                     connect = true;
-                    break;
                 }
             }  
             if(!connect)

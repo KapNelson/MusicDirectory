@@ -82,6 +82,12 @@
     <Compile Include="MenuAdminForm.Designer.cs">
       <DependentUpon>MenuAdminForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuDiskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuDiskForm.Designer.cs">
+      <DependentUpon>MenuDiskForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuUserForm.cs">
       <SubType>Form</SubType>
     </Compile>

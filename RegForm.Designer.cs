@@ -30,7 +30,6 @@ namespace MusicDirectory
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegForm));
-            this.adminCheckBox = new System.Windows.Forms.CheckBox();
             this.addUserButton = new System.Windows.Forms.Button();
             this.loginTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
@@ -38,22 +37,9 @@ namespace MusicDirectory
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.roleComboBox = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // adminCheckBox
-            // 
-            this.adminCheckBox.AutoSize = true;
-            this.adminCheckBox.BackColor = System.Drawing.Color.Transparent;
-            this.adminCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.adminCheckBox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.adminCheckBox.Location = new System.Drawing.Point(421, 306);
-            this.adminCheckBox.Name = "adminCheckBox";
-            this.adminCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.adminCheckBox.Size = new System.Drawing.Size(151, 22);
-            this.adminCheckBox.TabIndex = 0;
-            this.adminCheckBox.Text = "Администратор\r\n";
-            this.adminCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.adminCheckBox.UseVisualStyleBackColor = false;
             // 
             // addUserButton
             // 
@@ -126,6 +112,32 @@ namespace MusicDirectory
             this.label3.TabIndex = 7;
             this.label3.Text = "Повторите пароль:";
             // 
+            // roleComboBox
+            // 
+            this.roleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.roleComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.roleComboBox.FormattingEnabled = true;
+            this.roleComboBox.Items.AddRange(new object[] {
+            "Пользователь",
+            "Администратор",
+            "Производитель"});
+            this.roleComboBox.Location = new System.Drawing.Point(414, 304);
+            this.roleComboBox.Name = "roleComboBox";
+            this.roleComboBox.Size = new System.Drawing.Size(161, 24);
+            this.roleComboBox.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(323, 307);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 17);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Роль:";
+            // 
             // RegForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -133,6 +145,8 @@ namespace MusicDirectory
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(942, 493);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.roleComboBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -140,7 +154,6 @@ namespace MusicDirectory
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.loginTextBox);
             this.Controls.Add(this.addUserButton);
-            this.Controls.Add(this.adminCheckBox);
             this.Name = "RegForm";
             this.Text = "Регистрация";
             this.ResumeLayout(false);
@@ -149,8 +162,6 @@ namespace MusicDirectory
         }
 
         #endregion
-
-        private System.Windows.Forms.CheckBox adminCheckBox;
         private System.Windows.Forms.Button addUserButton;
         private System.Windows.Forms.TextBox loginTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
@@ -158,5 +169,7 @@ namespace MusicDirectory
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox roleComboBox;
+        private System.Windows.Forms.Label label4;
     }
 }

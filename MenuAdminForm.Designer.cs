@@ -126,6 +126,10 @@ namespace MusicDirectory
             this.deleteMusInstrButton = new System.Windows.Forms.Button();
             this.musInstrListBox = new System.Windows.Forms.ListBox();
             this.genreListBox = new System.Windows.Forms.ListBox();
+            this.roleColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.soloMusListView = new System.Windows.Forms.ListView();
+            this.idSoloColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nameSoloColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.adminTabControl.SuspendLayout();
@@ -761,6 +765,7 @@ namespace MusicDirectory
             // 
             this.tabPage6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage6.BackgroundImage")));
             this.tabPage6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage6.Controls.Add(this.soloMusListView);
             this.tabPage6.Controls.Add(this.PartGroupBox);
             this.tabPage6.Controls.Add(this.deletePerformerButton);
             this.tabPage6.Controls.Add(this.updatePerformerButton);
@@ -823,7 +828,8 @@ namespace MusicDirectory
             this.idMusPerColumn,
             this.nameMusPerColumn,
             this.dateEColumn,
-            this.dateLColumn});
+            this.dateLColumn,
+            this.roleColumn});
             this.musPerListView.FullRowSelect = true;
             this.musPerListView.HideSelection = false;
             this.musPerListView.Location = new System.Drawing.Point(6, 22);
@@ -1169,6 +1175,34 @@ namespace MusicDirectory
             this.genreListBox.TabIndex = 0;
             this.genreListBox.Click += new System.EventHandler(this.genreListBox_Click);
             // 
+            // roleColumn
+            // 
+            this.roleColumn.Text = "Роль в группе";
+            // 
+            // soloMusListView
+            // 
+            this.soloMusListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.idSoloColumn,
+            this.nameSoloColumn});
+            this.soloMusListView.FullRowSelect = true;
+            this.soloMusListView.HideSelection = false;
+            this.soloMusListView.Location = new System.Drawing.Point(13, 328);
+            this.soloMusListView.Name = "soloMusListView";
+            this.soloMusListView.Size = new System.Drawing.Size(256, 95);
+            this.soloMusListView.TabIndex = 41;
+            this.soloMusListView.UseCompatibleStateImageBehavior = false;
+            this.soloMusListView.View = System.Windows.Forms.View.Details;
+            // 
+            // idSoloColumn
+            // 
+            this.idSoloColumn.Text = "Номер музыканта";
+            this.idSoloColumn.Width = 133;
+            // 
+            // nameSoloColumn
+            // 
+            this.nameSoloColumn.Text = "ФИО музыканта";
+            this.nameSoloColumn.Width = 126;
+            // 
             // MenuAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1299,5 +1333,9 @@ namespace MusicDirectory
         private System.Windows.Forms.ColumnHeader nameMusPerColumn;
         private System.Windows.Forms.ColumnHeader dateEColumn;
         private System.Windows.Forms.ColumnHeader dateLColumn;
+        private System.Windows.Forms.ColumnHeader roleColumn;
+        private System.Windows.Forms.ListView soloMusListView;
+        private System.Windows.Forms.ColumnHeader idSoloColumn;
+        private System.Windows.Forms.ColumnHeader nameSoloColumn;
     }
 }

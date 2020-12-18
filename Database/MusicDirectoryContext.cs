@@ -55,9 +55,9 @@ namespace MusicDirectory
                 .HasOptional(e => e.Solo)
                 .WithRequired(e => e.Performer);
 
-            //modelBuilder.Entity<Musician>()
-            //    .HasOptional(e => e.Solo)
-            //    .WithRequired(e => e.Musician);
+            modelBuilder.Entity<Musician>()
+                .HasOptional(e => e.Solo)
+                .WithRequired(e => e.Musician);
         }
     }
 }

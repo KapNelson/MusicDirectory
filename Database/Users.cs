@@ -15,7 +15,8 @@ namespace MusicDirectory
         [StringLength(50)]
         public string Password { get; set; }
 
-        public bool Admin { get; set; }
+        [StringLength(50)]
+        public string Admin { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Playlist> Playlist { get; set; }
