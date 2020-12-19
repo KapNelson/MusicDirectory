@@ -101,16 +101,25 @@ namespace MusicDirectory
             {
                 if (int.TryParse(batchNumTextBox.Text, out int result1) && DateTime.TryParse(dateTextBox.Text, out DateTime result2) && int.TryParse(circulTextBox.Text, out int result3))
                 {
-                    int numberOfRowUpdated = db.Database.ExecuteSqlCommand("INSERT INTO Disk (BatchNumber,DiskName,Manufacturer,ReleaseDate,Circulation,NumberOfTracks) VALUES (" 
-                        + batchNumTextBox.Text + ",'" 
-                        + nameTextBox.Text + "','" 
+                    int count = 0;
+
+                    if (albumRadioButton.Checked)
+                    {
+                        var track = db.Track;
+                        foreach (var el in track)
+                        {
+                            if (el.ID_Album == Convert.ToInt32(albumListView.SelectedItems[0].Text))
+                                count++;
+                        }
+                    }
+
+                    int numberOfRowUpdated = db.Database.ExecuteSqlCommand("INSERT INTO Disk (BatchNumber,DiskName,Manufacturer,ReleaseDate,Circulation,NumberOfTracks) VALUES ("
+                        + batchNumTextBox.Text + ",'"
+                        + nameTextBox.Text + "','"
                         + makerTextBox.Text + "','"
                         + dateTextBox.Text + "',"
                         + circulTextBox.Text + ","
-                        + "0);");
-
-                    diskListView.Items.Clear();
-                    PrintDisk();
+                        + Convert.ToString(count) + ");");
 
                     if (albumRadioButton.Checked)
                     {
@@ -124,7 +133,10 @@ namespace MusicDirectory
                         form.Show();
                     }
 
-                        MessageBox.Show("Диск успешно добавлен!");
+                    diskListView.Items.Clear();
+                    PrintDisk();
+
+                    MessageBox.Show("Диск успешно добавлен!");
                 }
                 else
                 {
@@ -208,6 +220,7 @@ namespace MusicDirectory
                     };
                     ListViewItem listViewItem = new ListViewItem(str);
                     trackListView.Items.Add(listViewItem);
+                    mixRadioButton.Checked = true;
                 }
             }
             foreach (var el in alyubomin)
@@ -230,6 +243,7 @@ namespace MusicDirectory
                             trackListView.Items.Add(listViewItem);
                         }
                     }
+                    albumRadioButton.Checked = true;
                 }
             }
 
