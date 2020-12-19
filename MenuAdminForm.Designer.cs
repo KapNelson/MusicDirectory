@@ -969,7 +969,7 @@ namespace MusicDirectory
             this.addPerformerButton2.TabIndex = 37;
             this.addPerformerButton2.Text = "Добавить исполнителя";
             this.addPerformerButton2.UseVisualStyleBackColor = true;
-            this.addPerformerButton2.Click += new System.EventHandler(this.addPerformerButton2_Click);
+            this.addPerformerButton2.Click += new System.EventHandler(this.AddPerformerButton2_Click);
             // 
             // countryTextBox
             // 

@@ -64,6 +64,12 @@
     <Compile Include="AddParticipationForm.Designer.cs">
       <DependentUpon>AddParticipationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddTrackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTrackForm.Designer.cs">
+      <DependentUpon>AddTrackForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database\Album.cs" />
     <Compile Include="Database\Alyubomin.cs" />
     <Compile Include="Database\Band.cs" />
@@ -121,11 +127,17 @@
     <EmbeddedResource Include="AddParticipationForm.resx">
       <DependentUpon>AddParticipationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddTrackForm.resx">
+      <DependentUpon>AddTrackForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuAdminForm.resx">
       <DependentUpon>MenuAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuDiskForm.resx">
+      <DependentUpon>MenuDiskForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuUserForm.resx">
       <DependentUpon>MenuUserForm.cs</DependentUpon>

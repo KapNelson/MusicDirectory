@@ -23,9 +23,9 @@ namespace MusicDirectory
         public string Manufacturer { get; set; }
 
         [StringLength(50)]
-        public string DiscName { get; set; }
+        public string DiskName { get; set; }
 
-        public int? NumberOfTracks { get; set; }
+        public int NumberOfTracks { get; set; }
 
         public int? Circulation { get; set; }
 

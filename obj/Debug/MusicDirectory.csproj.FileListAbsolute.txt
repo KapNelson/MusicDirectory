@@ -22,3 +22,5 @@ D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\Interop.WMPLib.dll
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.csproj.ResolveComReference.cache
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.TrackInfoForm.resources
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.AddParticipationForm.resources
+D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.MenuDiskForm.resources
+D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.AddTrackForm.resources
