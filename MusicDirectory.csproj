@@ -47,6 +47,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,6 +77,12 @@
     <Compile Include="Database\Disk.cs" />
     <Compile Include="Database\Genre.cs" />
     <Compile Include="Database\Playlist.cs" />
+    <Compile Include="DiskStatisticsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiskStatisticsForm.Designer.cs">
+      <DependentUpon>DiskStatisticsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddTrackForm.resx">
       <DependentUpon>AddTrackForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiskStatisticsForm.resx">
+      <DependentUpon>DiskStatisticsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

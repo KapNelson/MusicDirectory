@@ -24,3 +24,4 @@ D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.TrackI
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.AddParticipationForm.resources
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.MenuDiskForm.resources
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.AddTrackForm.resources
+D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.DiskStatisticsForm.resources

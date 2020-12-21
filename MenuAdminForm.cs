@@ -575,11 +575,13 @@ namespace MusicDirectory
                 {
                     PrintSolo(Convert.ToInt32(el.ID_Musician));
                     isSolo = true;
+                    soloRadioButton.Checked = true;
                 }
             }
             if (!isSolo)
             {
                 PrintParticipation(performerListView.SelectedItems[0].Text);
+                groupRadioButton.Checked = true;
             }
         }
 

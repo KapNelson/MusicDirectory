@@ -85,6 +85,10 @@ namespace MusicDirectory
                     trackListView.SelectedItems[0].Remove();
                     progressBar.Value--;
 
+                    int numberOfRowUpdated1 = db.Database.ExecuteSqlCommand("UPDATE Disk SET NumberOfTracks=NumberOfTracks-1 WHERE BatchNumber=" + diskListView.SelectedItems[0].Text + ";");
+                    int minus = Convert.ToInt32(diskListView.SelectedItems[0].SubItems[5].Text) - 1;
+                    diskListView.SelectedItems[0].SubItems[5].Text = Convert.ToString(minus);
+
                     MessageBox.Show("Трек успешно удалён!");
                 }
             }
@@ -126,11 +130,6 @@ namespace MusicDirectory
                         int numberOfRowUpdated2 = db.Database.ExecuteSqlCommand("INSERT INTO Alyubomin (BatchNumber,ID_Album) VALUES ("
                         + batchNumTextBox.Text + ","
                         + albumListView.SelectedItems[0].Text + ");");
-                    }
-                    if (mixRadioButton.Checked)
-                    {
-                        AddTrackForm form = new AddTrackForm(batchNumTextBox.Text);
-                        form.Show();
                     }
 
                     diskListView.Items.Clear();
@@ -213,6 +212,7 @@ namespace MusicDirectory
                 {
                     string[] str = new string[]
                     {
+                        Convert.ToString(el.NumOnDisk),
                         Convert.ToString(el.Track.ID_Track),
                         el.Track.NameOfTrack,
                         el.Track.Performer.ArtistName,
@@ -234,6 +234,7 @@ namespace MusicDirectory
                         {
                             string[] str = new string[]
                             {
+                                Convert.ToString(el2.AlbumNumber),
                                 Convert.ToString(el2.ID_Track),
                                 el2.NameOfTrack,
                                 el2.Performer.ArtistName,
@@ -252,6 +253,12 @@ namespace MusicDirectory
             makerTextBox.Text = diskListView.SelectedItems[0].SubItems[2].Text;
             dateTextBox.Text = diskListView.SelectedItems[0].SubItems[3].Text;
             circulTextBox.Text = diskListView.SelectedItems[0].SubItems[4].Text;       
+        }
+
+        private void statisticButton_Click(object sender, EventArgs e)
+        {
+            DiskStatisticsForm form = new DiskStatisticsForm();
+            form.Show();
         }
     }
 }

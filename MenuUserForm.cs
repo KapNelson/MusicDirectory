@@ -30,7 +30,7 @@ namespace MusicDirectory
 
         private void playButton_Click(object sender, EventArgs e)
         {
-            WMP.URL = @"D:\Projects\VisualStudioProdjects\MusicDirectory\Resources\Music\" + trackListView.SelectedItems[0].Text + ".mp3";
+            WMP.URL = @"D:\Projects\VisualStudioProdjects\MusicDirectory\Resources\Music\" + trackListView.SelectedItems[0].SubItems[1].Text + " - "+ trackListView.SelectedItems[0].Text + ".mp3";
             WMP.controls.play();
             p = true;
         }

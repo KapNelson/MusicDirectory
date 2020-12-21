@@ -40,14 +40,12 @@ namespace MusicDirectory
             this.numTrack = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.genreTrack = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.durationTrack = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.numTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // addTrackButton
             // 
             this.addTrackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addTrackButton.Location = new System.Drawing.Point(512, 386);
+            this.addTrackButton.Location = new System.Drawing.Point(347, 386);
             this.addTrackButton.Name = "addTrackButton";
             this.addTrackButton.Size = new System.Drawing.Size(112, 52);
             this.addTrackButton.TabIndex = 58;
@@ -117,26 +115,6 @@ namespace MusicDirectory
             this.durationTrack.Text = "Длительность";
             this.durationTrack.Width = 140;
             // 
-            // numTextBox
-            // 
-            this.numTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numTextBox.Location = new System.Drawing.Point(261, 399);
-            this.numTextBox.Name = "numTextBox";
-            this.numTextBox.Size = new System.Drawing.Size(212, 26);
-            this.numTextBox.TabIndex = 60;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(90, 402);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 20);
-            this.label1.TabIndex = 61;
-            this.label1.Text = "Номер на диске:";
-            // 
             // AddTrackForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -144,15 +122,12 @@ namespace MusicDirectory
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.numTextBox);
             this.Controls.Add(this.trackListView);
             this.Controls.Add(this.addTrackButton);
             this.Name = "AddTrackForm";
             this.Text = "Добавить треки";
             this.Load += new System.EventHandler(this.AddTrackForm_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -167,7 +142,5 @@ namespace MusicDirectory
         private System.Windows.Forms.ColumnHeader numTrack;
         private System.Windows.Forms.ColumnHeader genreTrack;
         private System.Windows.Forms.ColumnHeader durationTrack;
-        private System.Windows.Forms.TextBox numTextBox;
-        private System.Windows.Forms.Label label1;
     }
 }

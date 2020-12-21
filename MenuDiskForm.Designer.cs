@@ -38,6 +38,7 @@ namespace MusicDirectory
             this.circulColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.quantityColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.trackListView = new System.Windows.Forms.ListView();
+            this.numOnDiskColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.idTrack = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nameTrack = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.performerTrack = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -66,6 +67,7 @@ namespace MusicDirectory
             this.batchNumTextBox = new System.Windows.Forms.TextBox();
             this.makerTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.statisticButton = new System.Windows.Forms.Button();
             this.albumGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -124,6 +126,7 @@ namespace MusicDirectory
             // trackListView
             // 
             this.trackListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.numOnDiskColumn,
             this.idTrack,
             this.nameTrack,
             this.performerTrack,
@@ -139,6 +142,10 @@ namespace MusicDirectory
             this.trackListView.TabIndex = 31;
             this.trackListView.UseCompatibleStateImageBehavior = false;
             this.trackListView.View = System.Windows.Forms.View.Details;
+            // 
+            // numOnDiskColumn
+            // 
+            this.numOnDiskColumn.Text = "Номер на диске";
             // 
             // idTrack
             // 
@@ -410,6 +417,18 @@ namespace MusicDirectory
             this.label3.TabIndex = 63;
             this.label3.Text = "Место на диске:";
             // 
+            // statisticButton
+            // 
+            this.statisticButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.statisticButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.statisticButton.Location = new System.Drawing.Point(1105, 638);
+            this.statisticButton.Name = "statisticButton";
+            this.statisticButton.Size = new System.Drawing.Size(122, 25);
+            this.statisticButton.TabIndex = 64;
+            this.statisticButton.Text = "Статистика";
+            this.statisticButton.UseVisualStyleBackColor = true;
+            this.statisticButton.Click += new System.EventHandler(this.statisticButton_Click);
+            // 
             // MenuDiskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -417,6 +436,7 @@ namespace MusicDirectory
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1392, 758);
+            this.Controls.Add(this.statisticButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.circulTextBox);
             this.Controls.Add(this.dateTextBox);
@@ -485,5 +505,7 @@ namespace MusicDirectory
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton mixRadioButton;
         private System.Windows.Forms.RadioButton albumRadioButton;
+        private System.Windows.Forms.ColumnHeader numOnDiskColumn;
+        private System.Windows.Forms.Button statisticButton;
     }
 }

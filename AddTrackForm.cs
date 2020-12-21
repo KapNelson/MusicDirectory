@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MusicDirectory
@@ -43,21 +36,13 @@ namespace MusicDirectory
         {
             try
             {
-                if (int.TryParse(numTextBox.Text, out int result))
-                {
-                    int numberOfRowUpdated = db.Database.ExecuteSqlCommand("INSERT INTO Mixed (BatchNumber,NumOnDisk,ID_Track) VALUES ("
-                        + id_disk + ",'"
-                        + numTextBox.Text + "',"
-                        + trackListView.SelectedItems[0].Text + ");");
+                int numberOfRowUpdated = db.Database.ExecuteSqlCommand("INSERT INTO Mixed (BatchNumber,ID_Track) VALUES ("
+                    + id_disk + ","
+                    + trackListView.SelectedItems[0].Text + ");");
 
-                    MenuDiskForm.instance.UpdateQuantity();
+                MenuDiskForm.instance.UpdateQuantity();
 
-                    MessageBox.Show("Трек успешно добавлен!");
-                }
-                else
-                {
-                    MessageBox.Show("Вы ввели некорректные данные!\nПовторите попытку!");
-                }
+                MessageBox.Show("Трек успешно добавлен!");
             }
             catch (Exception ex)
             {
