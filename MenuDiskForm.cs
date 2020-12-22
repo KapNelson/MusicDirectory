@@ -13,7 +13,6 @@ namespace MusicDirectory
             instance = this;
         }
 
-
         public void UpdateQuantity()
         {
             int plus = Convert.ToInt32(diskListView.SelectedItems[0].SubItems[5].Text) + 1;

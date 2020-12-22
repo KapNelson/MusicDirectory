@@ -30,7 +30,7 @@ namespace MusicDirectory
         public int? Circulation { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? ReleaseDate { get; set; }
+        public DateTime ReleaseDate { get; set; }
 
         public virtual Alyubomin Alyubomin { get; set; }
 
