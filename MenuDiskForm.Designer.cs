@@ -457,6 +457,7 @@ namespace MusicDirectory
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.trackListView);
             this.Controls.Add(this.diskListView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MenuDiskForm";
             this.Text = "Управление дисками";
             this.Load += new System.EventHandler(this.MenuDiskForm_Load);

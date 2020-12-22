@@ -124,6 +124,7 @@ namespace MusicDirectory
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.trackListView);
             this.Controls.Add(this.addTrackButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddTrackForm";
             this.Text = "Добавить треки";
             this.Load += new System.EventHandler(this.AddTrackForm_Load);

@@ -25,3 +25,6 @@ D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.AddPar
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.MenuDiskForm.resources
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.AddTrackForm.resources
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.DiskStatisticsForm.resources
+D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.AlbumInfoForm.resources
+D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.DiskInfoForm.resources
+D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.PerformerInfoForm.resources

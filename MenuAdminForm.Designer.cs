@@ -37,6 +37,9 @@ namespace MusicDirectory
             this.passwordColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.adminColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label20 = new System.Windows.Forms.Label();
+            this.trackGenreListBox = new System.Windows.Forms.ListBox();
+            this.genreTextBox = new System.Windows.Forms.TextBox();
             this.albumTextBox = new System.Windows.Forms.TextBox();
             this.performerTextBox = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -88,9 +91,6 @@ namespace MusicDirectory
             this.yearRecColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.numColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.soloMusListView = new System.Windows.Forms.ListView();
-            this.idSoloColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.nameSoloColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PartGroupBox = new System.Windows.Forms.GroupBox();
             this.addPartButton = new System.Windows.Forms.Button();
             this.deletePartButton = new System.Windows.Forms.Button();
@@ -102,12 +102,15 @@ namespace MusicDirectory
             this.roleColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.deletePerformerButton = new System.Windows.Forms.Button();
             this.updatePerformerButton = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.perGroupBox = new System.Windows.Forms.GroupBox();
+            this.soloMusListView = new System.Windows.Forms.ListView();
+            this.idSoloColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nameSoloColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.numPerTextBox = new System.Windows.Forms.TextBox();
             this.groupRadioButton = new System.Windows.Forms.RadioButton();
+            this.label15 = new System.Windows.Forms.Label();
             this.soloRadioButton = new System.Windows.Forms.RadioButton();
             this.namePerTextBox = new System.Windows.Forms.TextBox();
             this.addPerformerButton2 = new System.Windows.Forms.Button();
@@ -146,9 +149,6 @@ namespace MusicDirectory
             this.deleteMusInstrButton = new System.Windows.Forms.Button();
             this.musInstrListBox = new System.Windows.Forms.ListBox();
             this.genreListBox = new System.Windows.Forms.ListBox();
-            this.genreTextBox = new System.Windows.Forms.TextBox();
-            this.trackGenreListBox = new System.Windows.Forms.ListBox();
-            this.label20 = new System.Windows.Forms.Label();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.adminTabControl.SuspendLayout();
@@ -254,6 +254,37 @@ namespace MusicDirectory
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Управление треками";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label20.Location = new System.Drawing.Point(798, 489);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(70, 20);
+            this.label20.TabIndex = 45;
+            this.label20.Text = "Жанры:";
+            // 
+            // trackGenreListBox
+            // 
+            this.trackGenreListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.trackGenreListBox.FormattingEnabled = true;
+            this.trackGenreListBox.ItemHeight = 20;
+            this.trackGenreListBox.Location = new System.Drawing.Point(802, 529);
+            this.trackGenreListBox.Name = "trackGenreListBox";
+            this.trackGenreListBox.Size = new System.Drawing.Size(235, 224);
+            this.trackGenreListBox.TabIndex = 44;
+            this.trackGenreListBox.Click += new System.EventHandler(this.trackGenreListBox_Click);
+            // 
+            // genreTextBox
+            // 
+            this.genreTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.genreTextBox.Location = new System.Drawing.Point(253, 631);
+            this.genreTextBox.Name = "genreTextBox";
+            this.genreTextBox.ReadOnly = true;
+            this.genreTextBox.Size = new System.Drawing.Size(171, 23);
+            this.genreTextBox.TabIndex = 43;
             // 
             // albumTextBox
             // 
@@ -747,30 +778,6 @@ namespace MusicDirectory
             this.tabPage6.Text = "Управление исполнителями";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // soloMusListView
-            // 
-            this.soloMusListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.idSoloColumn,
-            this.nameSoloColumn});
-            this.soloMusListView.FullRowSelect = true;
-            this.soloMusListView.HideSelection = false;
-            this.soloMusListView.Location = new System.Drawing.Point(137, 21);
-            this.soloMusListView.Name = "soloMusListView";
-            this.soloMusListView.Size = new System.Drawing.Size(421, 204);
-            this.soloMusListView.TabIndex = 41;
-            this.soloMusListView.UseCompatibleStateImageBehavior = false;
-            this.soloMusListView.View = System.Windows.Forms.View.Details;
-            // 
-            // idSoloColumn
-            // 
-            this.idSoloColumn.Text = "Номер музыканта";
-            this.idSoloColumn.Width = 133;
-            // 
-            // nameSoloColumn
-            // 
-            this.nameSoloColumn.Text = "ФИО музыканта";
-            this.nameSoloColumn.Width = 126;
-            // 
             // PartGroupBox
             // 
             this.PartGroupBox.Controls.Add(this.addPartButton);
@@ -869,18 +876,6 @@ namespace MusicDirectory
             this.updatePerformerButton.UseVisualStyleBackColor = true;
             this.updatePerformerButton.Click += new System.EventHandler(this.updatePerformerButton_Click);
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label15.Location = new System.Drawing.Point(6, 234);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(226, 20);
-            this.label15.TabIndex = 43;
-            this.label15.Text = "Количество учасников:";
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -922,6 +917,30 @@ namespace MusicDirectory
             this.perGroupBox.TabStop = false;
             this.perGroupBox.Text = "Тип исполнителя";
             // 
+            // soloMusListView
+            // 
+            this.soloMusListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.idSoloColumn,
+            this.nameSoloColumn});
+            this.soloMusListView.FullRowSelect = true;
+            this.soloMusListView.HideSelection = false;
+            this.soloMusListView.Location = new System.Drawing.Point(137, 21);
+            this.soloMusListView.Name = "soloMusListView";
+            this.soloMusListView.Size = new System.Drawing.Size(421, 204);
+            this.soloMusListView.TabIndex = 41;
+            this.soloMusListView.UseCompatibleStateImageBehavior = false;
+            this.soloMusListView.View = System.Windows.Forms.View.Details;
+            // 
+            // idSoloColumn
+            // 
+            this.idSoloColumn.Text = "Номер музыканта";
+            this.idSoloColumn.Width = 133;
+            // 
+            // nameSoloColumn
+            // 
+            this.nameSoloColumn.Text = "ФИО музыканта";
+            this.nameSoloColumn.Width = 126;
+            // 
             // numPerTextBox
             // 
             this.numPerTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -940,6 +959,18 @@ namespace MusicDirectory
             this.groupRadioButton.TabStop = true;
             this.groupRadioButton.Text = "Группа";
             this.groupRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label15.Location = new System.Drawing.Point(6, 234);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(226, 20);
+            this.label15.TabIndex = 43;
+            this.label15.Text = "Количество учасников:";
             // 
             // soloRadioButton
             // 
@@ -1352,43 +1383,13 @@ namespace MusicDirectory
             this.genreListBox.TabIndex = 0;
             this.genreListBox.Click += new System.EventHandler(this.genreListBox_Click);
             // 
-            // genreTextBox
-            // 
-            this.genreTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.genreTextBox.Location = new System.Drawing.Point(253, 631);
-            this.genreTextBox.Name = "genreTextBox";
-            this.genreTextBox.ReadOnly = true;
-            this.genreTextBox.Size = new System.Drawing.Size(171, 23);
-            this.genreTextBox.TabIndex = 43;
-            // 
-            // trackGenreListBox
-            // 
-            this.trackGenreListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.trackGenreListBox.FormattingEnabled = true;
-            this.trackGenreListBox.ItemHeight = 20;
-            this.trackGenreListBox.Location = new System.Drawing.Point(802, 529);
-            this.trackGenreListBox.Name = "trackGenreListBox";
-            this.trackGenreListBox.Size = new System.Drawing.Size(235, 224);
-            this.trackGenreListBox.TabIndex = 44;
-            this.trackGenreListBox.Click += new System.EventHandler(this.trackGenreListBox_Click);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label20.Location = new System.Drawing.Point(798, 489);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(70, 20);
-            this.label20.TabIndex = 45;
-            this.label20.Text = "Жанры:";
-            // 
             // MenuAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1390, 790);
             this.Controls.Add(this.adminTabControl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MenuAdminForm";
             this.Text = "Меню администратора";
             this.Load += new System.EventHandler(this.MenuAdminForm_Load);

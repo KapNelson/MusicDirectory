@@ -31,6 +31,7 @@ namespace MusicDirectory
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuUserForm));
             this.trackListView = new System.Windows.Forms.ListView();
+            this.numTrack = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nameTrack = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.performerTrack = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.yearTrack = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -39,11 +40,14 @@ namespace MusicDirectory
             this.infoButton = new System.Windows.Forms.Button();
             this.playlistButton = new System.Windows.Forms.Button();
             this.addPlaylistButton = new System.Windows.Forms.Button();
+            this.sortComboBox = new System.Windows.Forms.ComboBox();
+            this.sortButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // trackListView
             // 
             this.trackListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.numTrack,
             this.nameTrack,
             this.performerTrack,
             this.yearTrack});
@@ -57,6 +61,11 @@ namespace MusicDirectory
             this.trackListView.TabIndex = 0;
             this.trackListView.UseCompatibleStateImageBehavior = false;
             this.trackListView.View = System.Windows.Forms.View.Details;
+            // 
+            // numTrack
+            // 
+            this.numTrack.Text = "Номер трека";
+            this.numTrack.Width = 160;
             // 
             // nameTrack
             // 
@@ -109,7 +118,7 @@ namespace MusicDirectory
             // playlistButton
             // 
             this.playlistButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.playlistButton.Location = new System.Drawing.Point(634, 417);
+            this.playlistButton.Location = new System.Drawing.Point(35, 417);
             this.playlistButton.Name = "playlistButton";
             this.playlistButton.Size = new System.Drawing.Size(121, 64);
             this.playlistButton.TabIndex = 4;
@@ -120,7 +129,7 @@ namespace MusicDirectory
             // addPlaylistButton
             // 
             this.addPlaylistButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addPlaylistButton.Location = new System.Drawing.Point(187, 417);
+            this.addPlaylistButton.Location = new System.Drawing.Point(192, 417);
             this.addPlaylistButton.Name = "addPlaylistButton";
             this.addPlaylistButton.Size = new System.Drawing.Size(121, 64);
             this.addPlaylistButton.TabIndex = 5;
@@ -128,18 +137,45 @@ namespace MusicDirectory
             this.addPlaylistButton.UseVisualStyleBackColor = true;
             this.addPlaylistButton.Click += new System.EventHandler(this.addPlaylistButton_Click);
             // 
+            // sortComboBox
+            // 
+            this.sortComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.sortComboBox.FormattingEnabled = true;
+            this.sortComboBox.Items.AddRange(new object[] {
+            "Название",
+            "Исполнитель",
+            "Год выпуска"});
+            this.sortComboBox.Location = new System.Drawing.Point(686, 417);
+            this.sortComboBox.Name = "sortComboBox";
+            this.sortComboBox.Size = new System.Drawing.Size(172, 24);
+            this.sortComboBox.TabIndex = 6;
+            // 
+            // sortButton
+            // 
+            this.sortButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.sortButton.Location = new System.Drawing.Point(711, 447);
+            this.sortButton.Name = "sortButton";
+            this.sortButton.Size = new System.Drawing.Size(121, 34);
+            this.sortButton.TabIndex = 7;
+            this.sortButton.Text = "Сортировать";
+            this.sortButton.UseVisualStyleBackColor = true;
+            this.sortButton.Click += new System.EventHandler(this.sortButton_Click);
+            // 
             // MenuUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(942, 493);
+            this.Controls.Add(this.sortButton);
+            this.Controls.Add(this.sortComboBox);
             this.Controls.Add(this.addPlaylistButton);
             this.Controls.Add(this.playlistButton);
             this.Controls.Add(this.infoButton);
             this.Controls.Add(this.pauseButton);
             this.Controls.Add(this.playButton);
             this.Controls.Add(this.trackListView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MenuUserForm";
             this.Text = "Список треков";
             this.Load += new System.EventHandler(this.MenuUserForm_Load);
@@ -158,5 +194,8 @@ namespace MusicDirectory
         private System.Windows.Forms.Button infoButton;
         private System.Windows.Forms.Button playlistButton;
         private System.Windows.Forms.Button addPlaylistButton;
+        private System.Windows.Forms.ColumnHeader numTrack;
+        private System.Windows.Forms.ComboBox sortComboBox;
+        private System.Windows.Forms.Button sortButton;
     }
 }

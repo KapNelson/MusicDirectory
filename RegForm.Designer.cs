@@ -154,6 +154,7 @@ namespace MusicDirectory
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.loginTextBox);
             this.Controls.Add(this.addUserButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegForm";
             this.Text = "Регистрация";
             this.ResumeLayout(false);

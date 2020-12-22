@@ -152,6 +152,7 @@ namespace MusicDirectory
             this.Controls.Add(this.entryTextBox);
             this.Controls.Add(this.addInBandButton);
             this.Controls.Add(this.musicianListView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddParticipationForm";
             this.Text = "Добавить учасников в группу";
             this.Load += new System.EventHandler(this.AddParticipationForm_Load);

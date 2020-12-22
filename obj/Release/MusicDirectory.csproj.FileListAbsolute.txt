@@ -22,3 +22,9 @@ D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.cspr
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.exe
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.pdb
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.AddParticipationForm.resources
+D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.AddTrackForm.resources
+D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.AlbumInfoForm.resources
+D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.DiskInfoForm.resources
+D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.DiskStatisticsForm.resources
+D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.MenuDiskForm.resources
+D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.PerformerInfoForm.resources

@@ -71,12 +71,24 @@
     <Compile Include="AddTrackForm.Designer.cs">
       <DependentUpon>AddTrackForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AlbumInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlbumInfoForm.Designer.cs">
+      <DependentUpon>AlbumInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database\Album.cs" />
     <Compile Include="Database\Alyubomin.cs" />
     <Compile Include="Database\Band.cs" />
     <Compile Include="Database\Disk.cs" />
     <Compile Include="Database\Genre.cs" />
     <Compile Include="Database\Playlist.cs" />
+    <Compile Include="DiskInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiskInfoForm.Designer.cs">
+      <DependentUpon>DiskInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DiskStatisticsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +126,12 @@
     <Compile Include="Database\Participation.cs" />
     <Compile Include="Database\Performer.cs" />
     <Compile Include="Database\PlayOn.cs" />
+    <Compile Include="PerformerInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PerformerInfoForm.Designer.cs">
+      <DependentUpon>PerformerInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegForm.cs">
@@ -137,6 +155,12 @@
     <EmbeddedResource Include="AddTrackForm.resx">
       <DependentUpon>AddTrackForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AlbumInfoForm.resx">
+      <DependentUpon>AlbumInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiskInfoForm.resx">
+      <DependentUpon>DiskInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DiskStatisticsForm.resx">
       <DependentUpon>DiskStatisticsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuUserForm.resx">
       <DependentUpon>MenuUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PerformerInfoForm.resx">
+      <DependentUpon>PerformerInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
