@@ -32,6 +32,8 @@ namespace MusicDirectory
 
         public int? ID_Artist { get; set; }
 
+        public int NumberOfPlays { get; set; }
+
         [Key]
         public int ID_Track { get; set; }
 

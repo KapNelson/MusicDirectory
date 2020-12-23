@@ -11,11 +11,13 @@ namespace MusicDirectory
         WMPLib.WindowsMediaPlayer WMP = new WMPLib.WindowsMediaPlayer();
         private bool p = true;
         private bool myPlaylist = false;
+        public static MenuUserForm instance;
         MusicDirectoryContext db = new MusicDirectoryContext();
 
         public MenuUserForm()
         {
             InitializeComponent();
+            instance = this;
         }
         private void MenuUserForm_Load(object sender, EventArgs e)
         {
@@ -23,7 +25,7 @@ namespace MusicDirectory
 
             foreach (Track el in track)
             {
-                string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear) };
+                string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear), Convert.ToString(el.NumberOfPlays) };
                 ListViewItem listViewItem = new ListViewItem(str);
                 trackListView.Items.Add(listViewItem);
             }
@@ -31,11 +33,75 @@ namespace MusicDirectory
             sortComboBox.SelectedItem = "Название";
         }
 
+        public void GropePerformer(int id_performer)
+        {
+            trackListView.Items.Clear();
+            var track = db.Track.Where(p => p.ID_Artist == id_performer).OrderBy(p => p.NameOfTrack);
+            foreach (Track el in track)
+            {
+                string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear), Convert.ToString(el.NumberOfPlays) };
+                ListViewItem listViewItem = new ListViewItem(str);
+                trackListView.Items.Add(listViewItem);
+            }
+        }
+
+        public void GropeGenre(string genre)
+        {
+            trackListView.Items.Clear();
+            var track = db.Track.Where(p => p.GenreName == genre).OrderBy(p => p.NameOfTrack);
+            foreach (Track el in track)
+            {
+                string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear), Convert.ToString(el.NumberOfPlays) };
+                ListViewItem listViewItem = new ListViewItem(str);
+                trackListView.Items.Add(listViewItem);
+            }
+        }
+
+        public void GropeAlbum(int id_album)
+        {
+            trackListView.Items.Clear();
+            var track = db.Track.Where(p => p.ID_Album == id_album).OrderBy(p => p.NameOfTrack);
+            foreach (Track el in track)
+            {
+                string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear), Convert.ToString(el.NumberOfPlays) };
+                ListViewItem listViewItem = new ListViewItem(str);
+                trackListView.Items.Add(listViewItem);
+            }
+        }
+
+        public void GropeYear(int year)
+        {
+            trackListView.Items.Clear();
+            var track = db.Track.Where(p => p.TrackRecYear == year).OrderBy(p => p.NameOfTrack);
+            foreach (Track el in track)
+            {
+                string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear), Convert.ToString(el.NumberOfPlays) };
+                ListViewItem listViewItem = new ListViewItem(str);
+                trackListView.Items.Add(listViewItem);
+            }
+        }
+
+        public void GropeBetweenYear(int first_year, int second_year)
+        {
+            trackListView.Items.Clear();
+            var track = db.Track.Where(p => p.TrackRecYear >= first_year && p.TrackRecYear <= second_year).OrderBy(p => p.NameOfTrack);
+            foreach (Track el in track)
+            {
+                string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear), Convert.ToString(el.NumberOfPlays) };
+                ListViewItem listViewItem = new ListViewItem(str);
+                trackListView.Items.Add(listViewItem);
+            }
+        }
+
         private void playButton_Click(object sender, EventArgs e)
         {
             WMP.URL = @"D:\Projects\VisualStudioProdjects\MusicDirectory\Resources\Music\" + trackListView.SelectedItems[0].SubItems[2].Text + " - "+ trackListView.SelectedItems[0].SubItems[1].Text + ".mp3";
             WMP.controls.play();
             p = true;
+
+            var t = db.Track.Find(Convert.ToInt32(trackListView.SelectedItems[0].Text));
+            t.NumberOfPlays++;
+            trackListView.SelectedItems[0].SubItems[4].Text = Convert.ToString(t.NumberOfPlays);
         }
 
         private void pauseButton_Click(object sender, EventArgs e)
@@ -168,7 +234,7 @@ namespace MusicDirectory
                         var trackName = db.Track.OrderBy(p => p.NameOfTrack);
                         foreach (Track el in trackName)
                         {
-                            string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear) };
+                            string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear), Convert.ToString(el.NumberOfPlays) };
                             ListViewItem listViewItem = new ListViewItem(str);
                             trackListView.Items.Add(listViewItem);
                         }
@@ -177,7 +243,7 @@ namespace MusicDirectory
                         var trackPer = db.Track.OrderBy(p => p.Performer.ArtistName);
                         foreach (Track el in trackPer)
                         {
-                            string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear) };
+                            string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear), Convert.ToString(el.NumberOfPlays) };
                             ListViewItem listViewItem = new ListViewItem(str);
                             trackListView.Items.Add(listViewItem);
                         }
@@ -186,7 +252,16 @@ namespace MusicDirectory
                         var trackYear = db.Track.OrderBy(p => p.TrackRecYear);
                         foreach (Track el in trackYear)
                         {
-                            string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear) };
+                            string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear), Convert.ToString(el.NumberOfPlays) };
+                            ListViewItem listViewItem = new ListViewItem(str);
+                            trackListView.Items.Add(listViewItem);
+                        }
+                        break;
+                    case "Прослушано":
+                        var trackPlay = db.Track.OrderByDescending(p => p.NumberOfPlays);
+                        foreach (Track el in trackPlay)
+                        {
+                            string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear), Convert.ToString(el.NumberOfPlays) };
                             ListViewItem listViewItem = new ListViewItem(str);
                             trackListView.Items.Add(listViewItem);
                         }
@@ -197,6 +272,12 @@ namespace MusicDirectory
             {
                 MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void groupeButton_Click(object sender, EventArgs e)
+        {
+            GroupeTrackForm form = new GroupeTrackForm();
+            form.Show();
         }
     }
 }

@@ -28,3 +28,4 @@ D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.DiskSt
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.AlbumInfoForm.resources
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.DiskInfoForm.resources
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.PerformerInfoForm.resources
+D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Debug\MusicDirectory.GroupeTrackForm.resources

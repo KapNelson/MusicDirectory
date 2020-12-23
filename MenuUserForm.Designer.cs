@@ -35,6 +35,7 @@ namespace MusicDirectory
             this.nameTrack = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.performerTrack = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.yearTrack = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.playsColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.playButton = new System.Windows.Forms.Button();
             this.pauseButton = new System.Windows.Forms.Button();
             this.infoButton = new System.Windows.Forms.Button();
@@ -42,6 +43,7 @@ namespace MusicDirectory
             this.addPlaylistButton = new System.Windows.Forms.Button();
             this.sortComboBox = new System.Windows.Forms.ComboBox();
             this.sortButton = new System.Windows.Forms.Button();
+            this.groupeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // trackListView
@@ -50,7 +52,8 @@ namespace MusicDirectory
             this.numTrack,
             this.nameTrack,
             this.performerTrack,
-            this.yearTrack});
+            this.yearTrack,
+            this.playsColumn});
             this.trackListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.trackListView.FullRowSelect = true;
             this.trackListView.GridLines = true;
@@ -81,6 +84,11 @@ namespace MusicDirectory
             // 
             this.yearTrack.Text = "Год выпуска";
             this.yearTrack.Width = 126;
+            // 
+            // playsColumn
+            // 
+            this.playsColumn.Text = "Прослушано";
+            this.playsColumn.Width = 135;
             // 
             // playButton
             // 
@@ -144,22 +152,34 @@ namespace MusicDirectory
             this.sortComboBox.Items.AddRange(new object[] {
             "Название",
             "Исполнитель",
-            "Год выпуска"});
-            this.sortComboBox.Location = new System.Drawing.Point(686, 417);
+            "Год выпуска",
+            "Прослушано"});
+            this.sortComboBox.Location = new System.Drawing.Point(635, 417);
             this.sortComboBox.Name = "sortComboBox";
-            this.sortComboBox.Size = new System.Drawing.Size(172, 24);
+            this.sortComboBox.Size = new System.Drawing.Size(267, 24);
             this.sortComboBox.TabIndex = 6;
             // 
             // sortButton
             // 
             this.sortButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sortButton.Location = new System.Drawing.Point(711, 447);
+            this.sortButton.Location = new System.Drawing.Point(635, 447);
             this.sortButton.Name = "sortButton";
-            this.sortButton.Size = new System.Drawing.Size(121, 34);
+            this.sortButton.Size = new System.Drawing.Size(131, 34);
             this.sortButton.TabIndex = 7;
             this.sortButton.Text = "Сортировать";
             this.sortButton.UseVisualStyleBackColor = true;
             this.sortButton.Click += new System.EventHandler(this.sortButton_Click);
+            // 
+            // groupeButton
+            // 
+            this.groupeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupeButton.Location = new System.Drawing.Point(772, 447);
+            this.groupeButton.Name = "groupeButton";
+            this.groupeButton.Size = new System.Drawing.Size(130, 34);
+            this.groupeButton.TabIndex = 8;
+            this.groupeButton.Text = "Группировать";
+            this.groupeButton.UseVisualStyleBackColor = true;
+            this.groupeButton.Click += new System.EventHandler(this.groupeButton_Click);
             // 
             // MenuUserForm
             // 
@@ -167,6 +187,7 @@ namespace MusicDirectory
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(942, 493);
+            this.Controls.Add(this.groupeButton);
             this.Controls.Add(this.sortButton);
             this.Controls.Add(this.sortComboBox);
             this.Controls.Add(this.addPlaylistButton);
@@ -197,5 +218,7 @@ namespace MusicDirectory
         private System.Windows.Forms.ColumnHeader numTrack;
         private System.Windows.Forms.ComboBox sortComboBox;
         private System.Windows.Forms.Button sortButton;
+        private System.Windows.Forms.ColumnHeader playsColumn;
+        private System.Windows.Forms.Button groupeButton;
     }
 }
