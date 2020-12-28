@@ -15,6 +15,7 @@ namespace MusicDirectory
         private void addInBandButton_Click(object sender, EventArgs e)
         {
             int numberOfRowInserted = db.Database.ExecuteSqlCommand("INSERT INTO Participation (ID_Artist,ID_Musician,YearOfEntry,YearOfLeaving,Role) VALUES (" + Convert.ToString(idPerformer) + "," + Convert.ToString(musicianListView.SelectedItems[0].Text) + "," + entryTextBox.Text + "," + leavingTextBox.Text + ",'" + roleTextBox.Text + "')");
+            int numberOfRowUpdated = db.Database.ExecuteSqlCommand("UPDATE Band SET NumOfParticipants=NumOfParticipants+1 WHERE ID_Artist=" + Convert.ToString(idPerformer) + ";");
             MessageBox.Show("Музыкант успешно добавлен в группу!");
         }
 

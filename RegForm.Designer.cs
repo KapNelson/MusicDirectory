@@ -67,6 +67,7 @@ namespace MusicDirectory
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(198, 30);
             this.passwordTextBox.TabIndex = 3;
+            this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // repasswordTextBox
             // 
@@ -75,6 +76,7 @@ namespace MusicDirectory
             this.repasswordTextBox.Name = "repasswordTextBox";
             this.repasswordTextBox.Size = new System.Drawing.Size(198, 30);
             this.repasswordTextBox.TabIndex = 4;
+            this.repasswordTextBox.UseSystemPasswordChar = true;
             // 
             // label1
             // 

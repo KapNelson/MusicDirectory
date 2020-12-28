@@ -1,14 +1,17 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using NAudio.Wave;
 
 namespace MusicDirectory
 {
     public partial class MenuUserForm : Form
     {
-        [System.Runtime.InteropServices.DllImport("winmm.dll")]
-        private static extern Boolean PlaySound(string lpszName, int hModule, int dwFlags);
-        WMPLib.WindowsMediaPlayer WMP = new WMPLib.WindowsMediaPlayer();
+        //[System.Runtime.InteropServices.DllImport("winmm.dll")]
+        //private static extern Boolean PlaySound(string lpszName, int hModule, int dwFlags);
+        //WMPLib.WindowsMediaPlayer WMP = new WMPLib.WindowsMediaPlayer();
+        WaveOut waveOut = new WaveOut();
         private bool p = true;
         private bool myPlaylist = false;
         public static MenuUserForm instance;
@@ -95,25 +98,39 @@ namespace MusicDirectory
 
         private void playButton_Click(object sender, EventArgs e)
         {
-            WMP.URL = @"D:\Projects\VisualStudioProdjects\MusicDirectory\Resources\Music\" + trackListView.SelectedItems[0].SubItems[2].Text + " - "+ trackListView.SelectedItems[0].SubItems[1].Text + ".mp3";
-            WMP.controls.play();
+            //WMP.URL = @"D:\Projects\VisualStudioProdjects\MusicDirectory\Resources\Music\" + trackListView.SelectedItems[0].SubItems[2].Text + " - "+ trackListView.SelectedItems[0].SubItems[1].Text + ".mp3";
+            //WMP.controls.play();
             p = true;
 
+            var track = db.Track;
+            foreach (var el in track)
+            {
+                if (el.ID_Track == Convert.ToInt32(trackListView.SelectedItems[0].Text))
+                {
+                    var bytes = el.Audio;
+
+                    Stream s = new MemoryStream(bytes);
+                    WaveStream blockAlignedStream = new BlockAlignReductionStream(WaveFormatConversionStream.CreatePcmStream(new Mp3FileReader(s)));
+                    waveOut.Init(blockAlignedStream);
+                    waveOut.Play();
+                    break;
+                }
+            }
+            int numberOfRowUpdated = db.Database.ExecuteSqlCommand("UPDATE Track SET NumberOfPlays=NumberOfPlays+1 WHERE ID_Track=" + trackListView.SelectedItems[0].Text + ";");
             var t = db.Track.Find(Convert.ToInt32(trackListView.SelectedItems[0].Text));
-            t.NumberOfPlays++;
-            trackListView.SelectedItems[0].SubItems[4].Text = Convert.ToString(t.NumberOfPlays);
+            trackListView.SelectedItems[0].SubItems[4].Text = Convert.ToString(++t.NumberOfPlays);
         }
 
         private void pauseButton_Click(object sender, EventArgs e)
         {
             if (p)
             {
-                WMP.controls.pause();
+                waveOut.Pause();
                 p = false;
             }
             else
             {
-                WMP.controls.play();
+                waveOut.Play();
                 p = true;
             }
         }
@@ -149,7 +166,7 @@ namespace MusicDirectory
                     {
                         if (el.Login == LoginForm.instance.GetUser())
                         {
-                            string[] str = new string[] { Convert.ToString(el.Track.ID_Track) ,el.Track.NameOfTrack, el.Track.Performer.ArtistName, Convert.ToString(el.Track.TrackRecYear) };
+                            string[] str = new string[] { Convert.ToString(el.Track.ID_Track) ,el.Track.NameOfTrack, el.Track.Performer.ArtistName, Convert.ToString(el.Track.TrackRecYear), Convert.ToString(el.Track.NumberOfPlays) };
                             ListViewItem listViewItem = new ListViewItem(str);
                             trackListView.Items.Add(listViewItem);
                         }
@@ -160,11 +177,11 @@ namespace MusicDirectory
                 {
                     playlistButton.Text = "Мой плейлист";
                     addPlaylistButton.Text = "Добавить в мой плейлист";
-                    var track = db.Track;
+                    var track = db.Track.OrderBy(p=>p.NameOfTrack);
 
                     foreach (Track el in track)
                     {
-                        string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear) };
+                        string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear), Convert.ToString(el.NumberOfPlays) };
                         ListViewItem listViewItem = new ListViewItem(str);
                         trackListView.Items.Add(listViewItem);
                     }
@@ -186,7 +203,7 @@ namespace MusicDirectory
                 {
                     foreach (Track el in track)
                     {
-                        if (trackListView.SelectedItems[0].Text == el.NameOfTrack)
+                        if (trackListView.SelectedItems[0].Text == Convert.ToString(el.ID_Track))
                         {
                             Playlist newTrack = new Playlist
                             {
@@ -205,7 +222,7 @@ namespace MusicDirectory
                     int id_track = 0;
                     foreach (Track el in track)
                     {
-                        if (trackListView.SelectedItems[0].Text == el.NameOfTrack)
+                        if (trackListView.SelectedItems[0].Text == Convert.ToString(el.ID_Track))
                         {
                             id_track = el.ID_Track;
                             break;
@@ -226,46 +243,49 @@ namespace MusicDirectory
         {
             try
             {
-                trackListView.Items.Clear();
-                string sortType = sortComboBox.Text;
-                switch (sortType)
+                if (myPlaylist == false)
                 {
-                    case "Название":
-                        var trackName = db.Track.OrderBy(p => p.NameOfTrack);
-                        foreach (Track el in trackName)
-                        {
-                            string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear), Convert.ToString(el.NumberOfPlays) };
-                            ListViewItem listViewItem = new ListViewItem(str);
-                            trackListView.Items.Add(listViewItem);
-                        }
-                        break;
-                    case "Исполнитель":
-                        var trackPer = db.Track.OrderBy(p => p.Performer.ArtistName);
-                        foreach (Track el in trackPer)
-                        {
-                            string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear), Convert.ToString(el.NumberOfPlays) };
-                            ListViewItem listViewItem = new ListViewItem(str);
-                            trackListView.Items.Add(listViewItem);
-                        }
-                        break;
-                    case "Год выпуска":
-                        var trackYear = db.Track.OrderBy(p => p.TrackRecYear);
-                        foreach (Track el in trackYear)
-                        {
-                            string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear), Convert.ToString(el.NumberOfPlays) };
-                            ListViewItem listViewItem = new ListViewItem(str);
-                            trackListView.Items.Add(listViewItem);
-                        }
-                        break;
-                    case "Прослушано":
-                        var trackPlay = db.Track.OrderByDescending(p => p.NumberOfPlays);
-                        foreach (Track el in trackPlay)
-                        {
-                            string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear), Convert.ToString(el.NumberOfPlays) };
-                            ListViewItem listViewItem = new ListViewItem(str);
-                            trackListView.Items.Add(listViewItem);
-                        }
-                        break;
+                    trackListView.Items.Clear();
+                    string sortType = sortComboBox.Text;
+                    switch (sortType)
+                    {
+                        case "Название":
+                            var trackName = db.Track.OrderBy(p => p.NameOfTrack);
+                            foreach (Track el in trackName)
+                            {
+                                string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear), Convert.ToString(el.NumberOfPlays) };
+                                ListViewItem listViewItem = new ListViewItem(str);
+                                trackListView.Items.Add(listViewItem);
+                            }
+                            break;
+                        case "Исполнитель":
+                            var trackPer = db.Track.OrderBy(p => p.Performer.ArtistName);
+                            foreach (Track el in trackPer)
+                            {
+                                string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear), Convert.ToString(el.NumberOfPlays) };
+                                ListViewItem listViewItem = new ListViewItem(str);
+                                trackListView.Items.Add(listViewItem);
+                            }
+                            break;
+                        case "Год выпуска":
+                            var trackYear = db.Track.OrderBy(p => p.TrackRecYear);
+                            foreach (Track el in trackYear)
+                            {
+                                string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear), Convert.ToString(el.NumberOfPlays) };
+                                ListViewItem listViewItem = new ListViewItem(str);
+                                trackListView.Items.Add(listViewItem);
+                            }
+                            break;
+                        case "Прослушано":
+                            var trackPlay = db.Track.OrderByDescending(p => p.NumberOfPlays);
+                            foreach (Track el in trackPlay)
+                            {
+                                string[] str = new string[] { Convert.ToString(el.ID_Track), el.NameOfTrack, el.Performer.ArtistName, Convert.ToString(el.TrackRecYear), Convert.ToString(el.NumberOfPlays) };
+                                ListViewItem listViewItem = new ListViewItem(str);
+                                trackListView.Items.Add(listViewItem);
+                            }
+                            break;
+                    }
                 }
             }
             catch (Exception ex)
@@ -276,8 +296,11 @@ namespace MusicDirectory
 
         private void groupeButton_Click(object sender, EventArgs e)
         {
-            GroupeTrackForm form = new GroupeTrackForm();
-            form.Show();
+            if (myPlaylist == false)
+            {
+                GroupeTrackForm form = new GroupeTrackForm();
+                form.Show();
+            }
         }
     }
 }

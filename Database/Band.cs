@@ -9,7 +9,7 @@ namespace MusicDirectory
     [Table("Band")]
     public partial class Band
     {
-        public int? NumOfParticipants { get; set; }
+        public int NumOfParticipants { get; set; }
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

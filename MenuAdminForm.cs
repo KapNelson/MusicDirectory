@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace MusicDirectory
@@ -158,10 +160,10 @@ namespace MusicDirectory
                     string[] str = new string[] { Convert.ToString(el.ID_Musician), el.Musician.FullName, Convert.ToString(el.YearOfEntry), Convert.ToString(el.YearOfLeaving), el.Role };
                     ListViewItem listViewItem = new ListViewItem(str);
                     musPerListView.Items.Add(listViewItem);
-                    numPerTextBox.Text = Convert.ToString(el.Band.NumOfParticipants);
                 }
             }
-
+            var band = db.Band.Find(Convert.ToInt32(id_performer));
+            numPerTextBox.Text = Convert.ToString(band.NumOfParticipants);
         }
 
         //Users
@@ -597,6 +599,7 @@ namespace MusicDirectory
             try
             {
                 int numberOfRowDeleted = db.Database.ExecuteSqlCommand("DELETE FROM Participation WHERE ID_Musician='" + musPerListView.SelectedItems[0].Text + "' AND ID_Artist=" + performerListView.SelectedItems[0].Text + ";");
+                int numberOfRowUpdated = db.Database.ExecuteSqlCommand("UPDATE Band SET NumOfParticipants=NumOfParticipants-1 WHERE ID_Artist=" + performerListView.SelectedItems[0].Text + ";");
                 musPerListView.SelectedItems[0].Remove();
 
                 MessageBox.Show("Музыкант успешно удалён!");
@@ -716,6 +719,23 @@ namespace MusicDirectory
         private void trackAlbumListView_Click(object sender, EventArgs e)
         {
             albumTextBox.Text = trackAlbumListView.SelectedItems[0].SubItems[1].Text;
+        }
+
+        private void addAudioButton_Click(object sender, EventArgs e)
+        {
+            string path = "";
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Музыка (*.mp3)|*.mp3";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                path = openFileDialog.FileName;
+            }
+            var bytes = File.ReadAllBytes(path);
+            var track = db.Track.Find(Convert.ToInt32(trackListView.SelectedItems[0].Text));
+            track.Audio = bytes;
+            db.SaveChanges();
+
+            MessageBox.Show("Аудио успешно добавлено!");
         }
     }
 }

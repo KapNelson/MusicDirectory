@@ -36,6 +36,7 @@ namespace MusicDirectory
 
         [Key]
         public int ID_Track { get; set; }
+        public byte[] Audio { get; set; }
 
         public virtual Album Album { get; set; }
 

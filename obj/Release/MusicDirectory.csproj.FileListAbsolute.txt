@@ -7,7 +7,6 @@ D:\Projects\VisualStudioProdjects\MusicDirectory\bin\Release\EntityFramework.xml
 D:\Projects\VisualStudioProdjects\MusicDirectory\bin\Release\EntityFramework.SqlServer.xml
 D:\Projects\VisualStudioProdjects\MusicDirectory\bin\Release\ru\EntityFramework.resources.dll
 D:\Projects\VisualStudioProdjects\MusicDirectory\bin\Release\ru\EntityFramework.SqlServer.resources.dll
-D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.csprojAssemblyReference.cache
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\Interop.WMPLib.dll
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.csproj.ResolveComReference.cache
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.LoginForm.resources
@@ -28,3 +27,5 @@ D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.Disk
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.DiskStatisticsForm.resources
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.MenuDiskForm.resources
 D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.PerformerInfoForm.resources
+D:\Projects\VisualStudioProdjects\MusicDirectory\obj\Release\MusicDirectory.GroupeTrackForm.resources
+D:\Projects\VisualStudioProdjects\MusicDirectory\bin\Release\NAudio.dll

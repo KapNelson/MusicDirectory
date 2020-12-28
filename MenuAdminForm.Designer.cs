@@ -149,6 +149,7 @@ namespace MusicDirectory
             this.deleteMusInstrButton = new System.Windows.Forms.Button();
             this.musInstrListBox = new System.Windows.Forms.ListBox();
             this.genreListBox = new System.Windows.Forms.ListBox();
+            this.addAudioButton = new System.Windows.Forms.Button();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.adminTabControl.SuspendLayout();
@@ -223,6 +224,7 @@ namespace MusicDirectory
             // 
             this.tabPage1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage1.BackgroundImage")));
             this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage1.Controls.Add(this.addAudioButton);
             this.tabPage1.Controls.Add(this.label20);
             this.tabPage1.Controls.Add(this.trackGenreListBox);
             this.tabPage1.Controls.Add(this.genreTextBox);
@@ -271,9 +273,9 @@ namespace MusicDirectory
             this.trackGenreListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.trackGenreListBox.FormattingEnabled = true;
             this.trackGenreListBox.ItemHeight = 20;
-            this.trackGenreListBox.Location = new System.Drawing.Point(802, 529);
+            this.trackGenreListBox.Location = new System.Drawing.Point(802, 523);
             this.trackGenreListBox.Name = "trackGenreListBox";
-            this.trackGenreListBox.Size = new System.Drawing.Size(235, 224);
+            this.trackGenreListBox.Size = new System.Drawing.Size(235, 184);
             this.trackGenreListBox.TabIndex = 44;
             this.trackGenreListBox.Click += new System.EventHandler(this.trackGenreListBox_Click);
             // 
@@ -946,6 +948,7 @@ namespace MusicDirectory
             this.numPerTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.numPerTextBox.Location = new System.Drawing.Point(238, 231);
             this.numPerTextBox.Name = "numPerTextBox";
+            this.numPerTextBox.ReadOnly = true;
             this.numPerTextBox.Size = new System.Drawing.Size(168, 27);
             this.numPerTextBox.TabIndex = 2;
             // 
@@ -1383,6 +1386,17 @@ namespace MusicDirectory
             this.genreListBox.TabIndex = 0;
             this.genreListBox.Click += new System.EventHandler(this.genreListBox_Click);
             // 
+            // addAudioButton
+            // 
+            this.addAudioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addAudioButton.Location = new System.Drawing.Point(818, 720);
+            this.addAudioButton.Name = "addAudioButton";
+            this.addAudioButton.Size = new System.Drawing.Size(206, 33);
+            this.addAudioButton.TabIndex = 46;
+            this.addAudioButton.Text = "Добавить аудиофайл";
+            this.addAudioButton.UseVisualStyleBackColor = true;
+            this.addAudioButton.Click += new System.EventHandler(this.addAudioButton_Click);
+            // 
             // MenuAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1537,5 +1551,6 @@ namespace MusicDirectory
         private System.Windows.Forms.TextBox genreTextBox;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ListBox trackGenreListBox;
+        private System.Windows.Forms.Button addAudioButton;
     }
 }

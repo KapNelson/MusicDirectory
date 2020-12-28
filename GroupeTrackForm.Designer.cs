@@ -178,11 +178,11 @@ namespace MusicDirectory
             // groupeButton
             // 
             this.groupeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupeButton.Location = new System.Drawing.Point(450, 506);
+            this.groupeButton.Location = new System.Drawing.Point(791, 378);
             this.groupeButton.Name = "groupeButton";
             this.groupeButton.Size = new System.Drawing.Size(124, 34);
             this.groupeButton.TabIndex = 55;
-            this.groupeButton.Text = "Группировать";
+            this.groupeButton.Text = "Применить";
             this.groupeButton.UseVisualStyleBackColor = true;
             this.groupeButton.Click += new System.EventHandler(this.groupeButton_Click);
             // 
@@ -196,7 +196,7 @@ namespace MusicDirectory
             "Альбом",
             "Год выпуска",
             "Период времени"});
-            this.groupeComboBox.Location = new System.Drawing.Point(652, 388);
+            this.groupeComboBox.Location = new System.Drawing.Point(718, 315);
             this.groupeComboBox.Name = "groupeComboBox";
             this.groupeComboBox.Size = new System.Drawing.Size(261, 24);
             this.groupeComboBox.TabIndex = 56;
@@ -255,7 +255,7 @@ namespace MusicDirectory
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1048, 588);
+            this.ClientSize = new System.Drawing.Size(1048, 438);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -273,7 +273,7 @@ namespace MusicDirectory
             this.Controls.Add(this.label3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GroupeTrackForm";
-            this.Text = "Группировать";
+            this.Text = "Фильтр";
             this.Load += new System.EventHandler(this.GroupeTrackForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -177,7 +177,7 @@ namespace MusicDirectory
             this.groupeButton.Name = "groupeButton";
             this.groupeButton.Size = new System.Drawing.Size(130, 34);
             this.groupeButton.TabIndex = 8;
-            this.groupeButton.Text = "Группировать";
+            this.groupeButton.Text = "Фильтр";
             this.groupeButton.UseVisualStyleBackColor = true;
             this.groupeButton.Click += new System.EventHandler(this.groupeButton_Click);
             // 
